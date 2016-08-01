@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var home = CurrentPage.AncestorOrSelf("home");
+    var pages = CurrentPage.Site().Children.Where("Visible");
+}
+<ul id="menu-base-2" class="x-nav"> 
+    <li class="menu-item"><a href="@home.Url">@home.Name</a></li>    
+    @foreach (var page in pages)
+    {     
+           
+       <li class="menu-item"><a href="@page.Url">@page.Name</a></li>          
+    }  
+</ul>

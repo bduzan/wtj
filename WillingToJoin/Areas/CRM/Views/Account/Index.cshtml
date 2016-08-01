@@ -1,0 +1,110 @@
+﻿@using WillingToJoin.Areas.CRM.Models;
+
+<style type="text/css">
+    div.k-edit-form-container {
+        width: 100%;
+        min-width: 100px;
+        max-width: 1800px;
+    }
+
+    div.k-edit-form-container div.editor-field textarea,
+    input.k-textbox,
+    input.text-box.single-line,
+    div.k-edit-form-container div.k-upload {
+        width: 100%;
+        min-width: 100px;
+        max-width: none;
+    }
+</style>
+
+<div class="col-md-12 col-sm-12 col-xs-12 fill-heigh">
+    @(Html.Kendo().Grid<AccountViewModel>()
+        .Name("grid")
+        .HtmlAttributes(new { @class = "fill-heigh" })
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ID)
+                .Width(50);
+            columns.Bound(c => c.ImportedID)
+                .Width(100);
+            columns.Bound(c => c.Name);
+            columns.Bound(c => c.Phone);
+            columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            }).Width(200);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable
+            .Mode(GridEditMode.PopUp)
+            .TemplateName("Account")
+            .Window(w => w
+                .Width(800)
+                .Height(500)
+                .Scrollable(true)
+                .Draggable()
+                .Resizable()
+            )
+        )
+        .Scrollable()
+        .Groupable()
+        .Sortable()
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .Events(events => events
+                .Error("error_handler")
+            )
+            .Model(model =>
+            {
+                model.Id(p => p.ID);
+                model.Field(p => p.ID).Editable(false);
+                model.Field(p => p.ImportedID).Editable(false);
+            })
+            .Create(update => update.Action("Account_Create", "Account"))
+            .Read(read => read.Action("Account_Read", "Account"))
+            .Update(update => update.Action("Account_Update", "Account"))
+            .Destroy(update => update.Action("Account_Destroy", "Account"))
+        )
+    )
+</div>
+
+<!-- ******SCRIPT****** -->
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    $("html").addClass("fill-heigh");
+    $("body").addClass("fill-heigh");
+    $("#grid").addClass("fill-heigh");
+    $("div.k-grid-content").addClass("fill-heigh");
+
+    $(window).resize(function () {
+        var gridElement = $("#grid"),
+            newHeight = gridElement.innerHeight(),
+            otherElements = gridElement.children().not(".k-grid-content"),
+            otherElementsHeight = 0;
+
+        otherElements.each(function () {
+            otherElementsHeight += $(this).outerHeight();
+        });
+
+        gridElement.children(".k-grid-content").height(newHeight - otherElementsHeight);
+    });
+</script>

@@ -1,0 +1,116 @@
+﻿@using WillingToJoin.Areas.CRM.Models
+@model WillingToJoin.Areas.CRM.Models.HouseholdViewModel
+
+<div class="container border-box-sizing" style="width: 100%;">
+    @*@Html.HiddenFor(model => model.ID)*@
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Name, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.Name).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02FormalGreeting, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.Npo02FormalGreeting).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Npo02FormalGreeting)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02InformalGreeting, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.Npo02InformalGreeting).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Npo02InformalGreeting)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmFormalGreeting, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.CvmFormalGreeting).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.CvmFormalGreeting)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmInformalGreeting, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.CvmInformalGreeting).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.CvmInformalGreeting)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02MailingState, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.Npo02MailingState).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Npo02MailingState)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02MailingPostalCode, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.Npo02MailingPostalCode).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Npo02MailingPostalCode)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmReID, new {@class = "control-label"})
+                @Html.Kendo().TextBoxFor(model => model.CvmReID).HtmlAttributes(new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.CvmReID)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.Kendo().CheckBoxFor(m => m.ExportedToCvm).HtmlAttributes(new {@class = "form-control"})
+                @Html.LabelFor(model => model.ExportedToCvm, new {@class = "control-label"})
+                @Html.ValidationMessageFor(model => model.ExportedToCvm)
+            </div>
+        </div>
+    </div>
+   
+    <br/>
+</div>
+
+
+@(Html.Kendo().Grid<HouseholdNoteViewModel>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.Note);
+        })
+        .HtmlAttributes(new { style = "height: 550px;" })
+        .Scrollable()
+        .Groupable()
+        .Sortable()
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Read(read => read.Action("HouseholdNote_Read", "Household"))
+            .PageSize(20)
+        )
+)
+@*Name
+Npo02FormalGreeting
+Npo02InformalGreeting
+CvmFormalGreeting
+CvmInformalGreeting
+Npo02MailingStreet
+Npo02MailingCity
+Npo02MailingState
+Npo02MailingPostalCode
+CvmReID
+ExportedToCvm*@

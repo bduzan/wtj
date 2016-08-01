@@ -1,0 +1,42 @@
+﻿@model WillingToJoin.Areas.CRM2.Models.HouseholdsNotesViewModel
+@{
+    Layout = null;
+}
+
+<div class="container border-box-sizing" style="width: 100%;">
+    @Html.HiddenFor(model => model.HouseholdNoteID)
+    @Html.HiddenFor(model => model.HouseholdID)
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.NoteTypeID, new { @class = "control-label" })
+                @Html.Kendo().DropDownListFor(model => model.NoteTypeID).BindTo(new List<SelectListItem>
+                    () {
+                    new SelectListItem() {
+                    //NULL
+                    Text = "1",
+                    Value = "1"
+                    },
+                    new SelectListItem() {
+                    //Daughter
+                    Text = "2",
+                    Value = "2"
+                    },
+                    new SelectListItem() {
+                    //Primary
+                    Text = "3",
+                    Value = "3"
+                    } })
+                @Html.ValidationMessageFor(model => model.NoteTypeID)
+</div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Note, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Note).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Note)
+            </div>
+        </div>
+    </div>
+    <br />
+</div>

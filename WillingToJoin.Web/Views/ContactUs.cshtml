@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@{
+	Layout = "Layout.cshtml";
+    var contact = new WillingToJoin.Web.Models.ContactUs();
+    var message = TempData["message"] ?? string.Empty;
+}
+<div id="x-content-band-1" class="x-content-band vc" style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+    <div class="x-container wpb_row">
+
+        @CurrentPage.bodyText
+
+        <div class="x-column x-sm vc x-1-3" style="">
+            <div role="form" class="wpcf7" id="wpcf7-f522-p33-o1" lang="en-US" dir="ltr">
+                <div class="screen-reader-response"></div>
+                @Html.Partial("_ContactUsForm", contact)                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="x-content-band-2" class="x-content-band vc" style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+    <div class="x-container wpb_row">
+        <div class="x-column x-sm vc x-1-2" style=""></div>
+    </div>
+</div>
+
+}
+@section css{
+    <style>
+        .input-validation-error {
+            border: 2px solid red !important;
+        }
+    </style>
+}
+@section js{
+<!--Search and menu scroll-->
+<script type='text/javascript' src='/scripts/x-body.minb2f9.js?ver=4.3.0'></script>
+<script type='text/javascript' src='/scripts/cs-body.min0ba6.js?ver=1.0.6'></script>
+<!--Validations-->
+<script src="/scripts/jquery.validate2.min.js"></script>
+<script src="/scripts/jquery.validate.unobtrusive2.min.js"></script>
+<script src="/scripts/jquery.unobtrusive-ajax.min.js"></script>
+@*<script type='text/javascript'>
+    /* <![CDATA[ */
+    var _wpcf7 = { "loaderUrl": "/images/ajax-loader.gif", "recaptchaEmpty": "Please verify that you are not a robot.", "sending": "Sending ..." };
+    /* ]]> */
+</script>*@
+
+<script type="text/javascript">
+    debugger;
+    var message = '@message';
+    if (message) {
+        if (message == "Information successfully submitted") {
+            alert(message);
+            $('.wpcf7-response-output').addClass('wpcf7-mail-sent-ok').empty().show().append("Your message was sent successfully. Thanks.");
+            $("form input[type='text'],form input[type='email']").val(""); 
+            
+        }
+        if (message == "ValidatoinFailed") {
+            $('.wpcf7-response-output').show();
+            $("html, body").animate({ scrollTop: $(document).height() - $(window).height() });
+        }
+           
+
+        }
+</script>
+
+}
+
+
+
+
+

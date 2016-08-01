@@ -1,0 +1,105 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@{
+    Layout = null;
+}
+@if (umbraco.library.IsLoggedOn())
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Willing to Join | @ViewBag.Title</title>
+        @*@Styles.Render("~/Content/css")*@
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/css/Site.css" rel="stylesheet" type="text/css" />
+
+        @*@Styles.Render("~/font-awesome/css")*@
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+        @*@Scripts.Render("~/bundles/jquery")*@
+        <script src="/Scripts/jquery-2.1.1.min.js"></script>
+
+        <link rel="stylesheet" href=" http://kendo.cdn.telerik.com/2016.2.607/styles/kendo.common-material.min.css" />
+        <link rel="stylesheet" href=" http://kendo.cdn.telerik.com/2016.2.607/styles/kendo.material.min.css" />
+        <link rel="stylesheet" href=" http://kendo.cdn.telerik.com/2016.2.607/styles/kendo.default.mobile.min.css" />
+
+
+        @*<link href="/css/kendo/2015.3.1111/kendo.common.min.css" rel="stylesheet" type="text/css" />*@
+        @*<link href="/css/kendo/2015.3.1111/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />*@
+        @*<link href="/css/kendo/2015.3.1111/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/kendo/2015.3.1111/kendo.default.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/kendo/2015.3.1111/kendo.dataviz.default.min.css" rel="stylesheet" type="text/css" />*@
+
+
+        
+
+       
+        
+
+        <script src="/Scripts/kendo/2015.3.1111/jquery.min.js"></script>
+        <script src="/Scripts/kendo/2015.3.1111/jszip.min.js"></script>
+
+        @*<script src="/Scripts/kendo/2015.3.1111/kendo.all.min.js"></script>*@
+        <script src=" http://kendo.cdn.telerik.com/2016.2.607/js/kendo.all.min.js"></script>
+
+        <script src="/Scripts/kendo/2015.3.1111/kendo.aspnetmvc.min.js"></script>
+        <script src="/Scripts/kendo.modernizr.custom.js"></script>
+    </head>
+    <body>
+
+        <!-- Wrapper-->
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            @Html.Partial("_CRM_Navigation")
+
+            <!-- Page wraper -->
+            <div id="page-wrapper" class="gray-bg">
+
+                <!-- Top Navbar -->
+                @Html.Partial("_CRM_TopNavbar")
+
+                <!-- Main view  -->
+                @RenderBody()
+
+                <!-- Footer -->
+                @Html.Partial("_CRM Footer")
+
+            </div>
+            <!-- End page wrapper-->
+
+        </div>
+        <!-- End wrapper-->
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+        <script src="/Scripts/bootstrap.min.js"></script>
+
+        @*@Scripts.Render("~/plugins/metsiMenu")*@
+        <script src="/Scripts/metisMenu.min.js"></script>
+        @*@Scripts.Render("~/plugins/pace")*@
+        <script src="/Scripts/pace.min.js"></script>
+        @*@Scripts.Render("~/plugins/slimScroll")*@
+        <script src="/Scripts/jquery.slimscroll.min.js"></script>
+        @*@Scripts.Render("~/bundles/inspinia")*@
+        <script src="/Scripts/inspinia.js"></script>
+        @RenderSection("scripts", required: false)
+        <style>
+            .k-grid td {
+                padding: 15px 5px 15px 15px;
+            }
+            .k-grid-content{
+                min-height: 300px !important;
+            }
+        </style>
+    </body>
+</html>
+}
+else
+{
+    Response.Redirect("/crm/login");
+}

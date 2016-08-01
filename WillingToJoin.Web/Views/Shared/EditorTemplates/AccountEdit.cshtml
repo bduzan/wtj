@@ -1,0 +1,123 @@
+﻿@model WillingToJoin.Web.Models.AccountViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="container border-box-sizing" style="width: 100%;">
+    @*@Html.HiddenFor(model => model.ID)*@
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Name, new { @class = "control-label", @required="true" })
+                @Html.Kendo().TextBoxFor(model => model.Name).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.BillingStreet, new { @class = "control-label", @required = "true" })
+                @Html.Kendo().TextBoxFor(model => model.BillingStreet).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingStreet)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.BillingCity, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.BillingCity).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingCity)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.BillingState, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.BillingState).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingState)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.BillingPostalCode, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.BillingPostalCode).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BillingPostalCode)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.ShippingStreet, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.ShippingStreet).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ShippingStreet)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.ShippingCity, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.ShippingCity).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ShippingCity)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.ShippingState, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.ShippingState).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ShippingState)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.ShippingPostalCode, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.ShippingPostalCode).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ShippingPostalCode)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Phone, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Phone).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Website, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Website).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Website)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Facebook, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Facebook).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Facebook)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.SourceGroup, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.SourceGroup).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SourceGroup)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-xs-12">
+            </div>
+        </div>
+    </div>
+    <br />
+</div>

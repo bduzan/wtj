@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillingToJoin.Shared", "WillingToJoin.Shared\WillingToJoin.Shared.csproj", "{7A9E3AD1-1A39-4CC7-92F5-D8A8A0EB8745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillingToJoin.Web", "WillingToJoin.Web\WillingToJoin.Web.csproj", "{7495F647-2A89-478D-BF94-AA002AA8824C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillingToJoin", "WillingToJoin\WillingToJoin.csproj", "{1B0519A7-A249-40A7-AA32-E7E8BC715913}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A9E3AD1-1A39-4CC7-92F5-D8A8A0EB8745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9E3AD1-1A39-4CC7-92F5-D8A8A0EB8745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9E3AD1-1A39-4CC7-92F5-D8A8A0EB8745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9E3AD1-1A39-4CC7-92F5-D8A8A0EB8745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7495F647-2A89-478D-BF94-AA002AA8824C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7495F647-2A89-478D-BF94-AA002AA8824C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7495F647-2A89-478D-BF94-AA002AA8824C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7495F647-2A89-478D-BF94-AA002AA8824C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B0519A7-A249-40A7-AA32-E7E8BC715913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0519A7-A249-40A7-AA32-E7E8BC715913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0519A7-A249-40A7-AA32-E7E8BC715913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0519A7-A249-40A7-AA32-E7E8BC715913}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,78 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<WillingToJoin.Web.Models.RegisterViewModel>
+@using System.Web.Mvc.Html;
+@using Umbraco.Web
+@{
+    var firstNameRequired = Umbraco.Field("firstNameRequired");
+    var lastNameRequired = Umbraco.Field("lastNameRequired");
+    var emailRequired = Umbraco.Field("emailRequired");
+    var validEmailFormatText = Umbraco.Field("validEmailFormatText");
+    var passwordRequired = Umbraco.Field("passwordRequired");
+    var confirmPasswordRequired = Umbraco.Field("confirmPasswordRequired");
+}
+<div class="demo-section k-content">
+    @using (Html.BeginUmbracoForm("Register", "ManageAccount", new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Umbraco.Field("formHeadingText")
+        <hr />
+        @*@Html.ValidationSummary()*@
+
+        <ul id="fieldlist">
+            <li>
+                <label>
+                    @Umbraco.Field("firstNameLabel")
+                </label>
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "k-textbox", @required = "", @validationMessage = @firstNameRequired })
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+            </li>
+            <li>
+                <label>
+                    @Umbraco.Field("lastNameLabel")
+                </label>
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "k-textbox", @required = "", @validationMessage = @lastNameRequired })
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </li>
+
+            <li>
+                <label>
+                    @Umbraco.Field("emailLabel")
+                </label>
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "k-textbox", @required = "", @validationMessage = @emailRequired, @data_email_msg = @validEmailFormatText })
+                    @Html.ValidationMessageFor(m => m.Email)
+                    <div id="message" style="color:red;display:none"></div>
+                </div>
+            </li>
+            <li>
+                <label>
+                    @Umbraco.Field("passwordLabel")
+                </label>
+                <div class="col-md-12">
+                    @Html.PasswordFor(m => m.Password, new { @class = "k-textbox", @required = "", @validationMessage = @passwordRequired })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </li>
+            <li>
+                <label>
+                    @Umbraco.Field("confirmPasswordLabel")
+                </label>
+                <div class="col-md-7">
+                    @Html.PasswordFor(m => m.ConfirmPssword, new { @class = "k-textbox", @required = "", @validationMessage = @confirmPasswordRequired })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            </li>
+            <li>
+                <div class="col-md-offset-5 col-xs-offset-4 col-md-8">
+                    <input type="submit" class="k-button k-primary" value="@Umbraco.Field("submitButtonText")" />
+                </div>
+            </li>
+        </ul>
+    }
+
+</div>
+
+

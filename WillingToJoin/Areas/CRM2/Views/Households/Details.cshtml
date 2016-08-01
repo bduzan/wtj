@@ -1,0 +1,461 @@
+﻿@model WillingToJoin.Areas.CRM2.Models.HouseholdsDetailsViewModel
+
+<h2>Household Details</h2>
+<div class="container border-box-sizing" style="width: 100%;">
+    @Html.HiddenFor(model => model.ID)
+    @*@Html.Kendo().TextBoxFor(model => model.ID).HtmlAttributes(new { @class = "form-control" })*@
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Name).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02FormalGreeting, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Npo02FormalGreeting).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Npo02FormalGreeting)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02InformalGreeting, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Npo02InformalGreeting).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Npo02InformalGreeting)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmFormalGreeting, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.CvmFormalGreeting).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CvmFormalGreeting)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmInformalGreeting, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.CvmInformalGreeting).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CvmInformalGreeting)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02MailingState, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Npo02MailingState).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Npo02MailingState)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.Npo02MailingPostalCode, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.Npo02MailingPostalCode).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Npo02MailingPostalCode)
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-margin">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.LabelFor(model => model.CvmReID, new { @class = "control-label" })
+                @Html.Kendo().TextBoxFor(model => model.CvmReID).HtmlAttributes(new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CvmReID)
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xs-12">
+                @Html.Kendo().CheckBoxFor(m => m.ExportedToCvm).HtmlAttributes(new { @class = "form-control" })
+                @Html.LabelFor(model => model.ExportedToCvm, new { @class = "control-label" })
+                @Html.ValidationMessageFor(model => model.ExportedToCvm)
+            </div>
+        </div>
+    </div>
+    @*<div class="row vertical-margin">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-xs-12">
+                    @Html.LabelFor(model => model.HouseholdStatusID, new { @class = "control-label" })
+                    @Html.Kendo().DropDownListFor(model => model.HouseholdStatusID).BindTo(ViewData["householdStatuses"] as SelectList).HtmlAttributes(new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.HouseholdStatusID)
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            </div>
+        </div>*@
+
+    <br />
+</div>
+<h2>Donations</h2>
+@(Html.Kendo().Grid<WillingToJoin.Areas.CRM2.Models.DonationsViewModel>()
+    .Name("grid3")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ID).Visible(false);  @*add data*@
+            columns.Bound(c => c.TransTypeID).Width(10);
+            columns.Bound(c => c.TransIncrID).Width(10);
+            columns.Bound(c => c.TransMethID).Width(10);
+            columns.Bound(c => c.Date).Width(20);
+            columns.Bound(c => c.Amount).Width(20);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+            .Editable(editable => editable
+            .Mode(GridEditMode.PopUp)
+            //.TemplateName("")
+            .Window(w => w
+                .Width(500)
+                .Height(300)
+                .Scrollable(true)
+                .Draggable()
+                .Resizable()
+                ))
+        .HtmlAttributes(new { style = "height: 200px;" })
+        .Scrollable()
+        .Sortable()
+        .Pageable()
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(15)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.ID))
+        .Create(update => update.Action("Donations_Create", "Donations", new { did = Model.ID }))
+        .Read(read => read.Action("Donations_Read", "Donations", new { id = Model.ID }))
+        )
+)
+<br />
+<h2>Household Notes</h2>
+@(Html.Kendo().Grid<WillingToJoin.Areas.CRM2.Models.HouseholdsNotesViewModel>()
+        .Name("grid2")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.HouseholdNoteID).Visible(false);
+            columns.Bound(c => c.HouseholdID).Visible(false);
+            columns.Bound(c => c.NoteTypeID).Width(20);
+            columns.Bound(c => c.Note).Width(200);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+            .Editable(editable => editable
+            .Mode(GridEditMode.PopUp)
+            .TemplateName("HouseholdNoteEdit")
+            .Window(w => w
+                .Width(800)
+                .Height(300)
+                .Scrollable(true)
+                .Draggable()
+                .Resizable()
+                ))
+        .HtmlAttributes(new { style = "height: 200px;" })
+        .Scrollable()
+        .Sortable()
+        .Pageable()
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(15)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.HouseholdNoteID))
+        .Create(update => update.Action("HouseholdsNotes_Create", "HouseholdsNotes", new { hnc = Model.ID }))
+        .Read(read => read.Action("HouseholdsNotes_Read", "HouseholdsNotes", new { id = Model.ID }))
+        //.DataSource(dataSource => dataSource
+        //    .Ajax()
+        //    .PageSize(3)
+        //    .Events(events => events.Error("error_handler"))
+        //    .Model(model => model.Id(p => p.HouseholdNoteID))
+        //    .Create(update => update.Action("HouseholdsNotes_Create", "HouseholdsNotes", new { hid = Model.ID }))
+        //    .Read(read => read.Action("HouseholdsNotes_Read", "HouseholdsNotes", new { id = Model.ID }))
+        )
+)
+<br />
+@*add a "Contact" grid to the household details page*@
+<h2>Family Members (Contacts)</h2>
+@(Html.Kendo().Grid<WillingToJoin.Areas.CRM2.Models.ContactsViewModel>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.HouseholdID).Visible(false);
+            columns.Bound(c => c.Salutation).Width(20);
+            columns.Bound(c => c.FirstName).Width(20);
+            columns.Bound(c => c.LastName).Width(20);
+            columns.Bound(c => c.HomePhone).Width(20);
+            columns.Bound(c => c.MobilePhone).Width(20);
+            columns.Bound(c => c.Npe01WorkPhone).Width(20);
+            columns.Bound(c => c.Npe01HomeEmail).Width(20);
+            columns.Bound(c => c.Npe01WorkEmail).Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(35);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+                .Editable(editable => editable
+            .Mode(GridEditMode.PopUp)
+            .TemplateName("ContactEdit")
+            .Window(w => w
+                .Width(800)
+                .Height(300)
+                .Scrollable(true)
+                .Draggable()
+                .Resizable()
+            ))
+        .Resizable(resize => resize.Columns(true))
+        .HtmlAttributes(new { style = "height: 300px;" })
+        .Scrollable()
+        .Sortable()
+        .Pageable()
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(15)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.ID))
+        .Create(update => update.Action("Contacts_Create", "Contacts", new { hid = Model.ID }))
+        .Read(read => read.Action("Contacts_Read", "Contacts", new { id = Model.ID }))
+        .Update(update => update.Action("Contacts_Update", "Contacts"))
+        .Destroy(update => update.Action("Contacts_Destroy", "Contacts"))
+
+
+
+        )
+        .Resizable(resize => resize.Columns(true))
+)
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
+@*<script>
+      $("#create").click(function(){
+        var newItem = grid.dataSource.insert({},0);
+        grid.select($("#grid tr[data-uid='"+ newItem.uid +"']"));
+      });
+    </script>*@
+
+@*<script>
+        $("#create").kendoButton();
+        var button = $("#create").data("kendoButton");
+        button.bind("click", function (e) {
+            alert(e.event.target.tagName);
+        });
+    </script>*@
+
+@*@{
+        ViewBag.Title = "Details";
+    }
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Details</h2>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("List", "Index")
+                </li>
+                <li class="active">
+                    <strong>Details</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Details Household</h5>
+                    </div>
+                    <div class="ibox-content">
+
+
+                        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ImportedID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImportedID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OwnerID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OwnerID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02FormulaMailingAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02FormulaMailingAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02HouseholdEmail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02HouseholdEmail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02HouseholdPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02HouseholdPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02MailingCity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02MailingCity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02MailingPostalCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02MailingPostalCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02MailingState)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02MailingState)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02MailingStreet)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02MailingStreet)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02FormalGreeting)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02FormalGreeting)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Npo02InformalGreeting)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Npo02InformalGreeting)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CvmReID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CvmReID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExportedToCvm)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExportedToCvm)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Note)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Note)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CvmFormalGreeting)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CvmFormalGreeting)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CvmInformalGreeting)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CvmInformalGreeting)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GroupSource)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GroupSource)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HouseholdStatu.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HouseholdStatu.Name)
+            </dd>
+
+        </dl>
+
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary"})
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+

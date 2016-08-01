@@ -1,0 +1,52 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<WillingToJoin.Web.Models.LoginViewModel>
+@using System.Web.Mvc.Html
+@using Umbraco.Web;
+@using Kendo.Mvc;
+@{
+    var emailRequired = Umbraco.Field("emailRequired");
+    var notValidEmail = Umbraco.Field("notValidEmail");
+    var passwordRequired = Umbraco.Field("passwordRequired");
+}
+<div class="demo-section k-content">
+    @using (Html.BeginUmbracoForm("Login", "ManageAccount", new { @class = "form-horizontal", role = "form" }))
+    { 
+        @Html.AntiForgeryToken()
+        @Umbraco.Field("formHeadingText")
+        <div id="message" style="color:red;display:none"></div>
+        <hr />
+
+        <ul id="fieldlist">
+            <li>
+                <label>                    
+                    @Umbraco.Field("usernameLabel")
+                </label>
+
+                @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "k-textbox", @required = "", @validationMessage = @emailRequired, @data_email_msg = @notValidEmail })
+                @Html.ValidationMessageFor(m => m.Email)
+
+            </li>
+            <li>
+                <label>
+                    @Umbraco.Field("passwordLabel")                    
+                </label>
+
+                @Html.PasswordFor(m => m.Password, new { @class = "k-textbox", @required = "", @validationMessage = @passwordRequired })
+                @Html.ValidationMessageFor(m => m.Password)
+
+            </li>
+
+            <li>
+
+                <input type="submit" value="@Umbraco.Field("submitButtonText")" class="k-button k-primary" />
+                <a href="/crm/forgot-password" style="float: right;">@Umbraco.Field("forgotPasswordLinkText")</a>
+            </li>
+
+
+            <li> <a href="/crm/register">@Umbraco.Field("registerLinkText")</a></li>
+
+        </ul>
+    }
+</div>
+
+
+

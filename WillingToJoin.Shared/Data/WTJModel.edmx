@@ -1,0 +1,1368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WTJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountNotes">
+          <Key>
+            <PropertyRef Name="AccountNoteID" />
+          </Key>
+          <Property Name="AccountNoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteTypeID" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportedID" Type="char" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="BillingStreet" Type="nvarchar(max)" />
+          <Property Name="BillingCity" Type="nvarchar(max)" />
+          <Property Name="BillingState" Type="nvarchar(max)" />
+          <Property Name="BillingPostalCode" Type="nvarchar(max)" />
+          <Property Name="ShippingStreet" Type="nvarchar(max)" />
+          <Property Name="ShippingCity" Type="nvarchar(max)" />
+          <Property Name="ShippingState" Type="nvarchar(max)" />
+          <Property Name="ShippingPostalCode" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Facebook" Type="nvarchar(max)" />
+          <Property Name="SourceGroup" Type="nvarchar(max)" />
+          <Property Name="AccountStatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountStatus">
+          <Key>
+            <PropertyRef Name="AccountStatusID" />
+          </Key>
+          <Property Name="AccountStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactNotes">
+          <Key>
+            <PropertyRef Name="ContactNoteID" />
+          </Key>
+          <Property Name="ContactNoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteTypeID" Type="int" Nullable="false" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HouseholdID" Type="int" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="ImportedID" Type="char" MaxLength="20" />
+          <Property Name="HouseholdImportedID" Type="char" MaxLength="20" />
+          <Property Name="AccountImportedID" Type="char" MaxLength="20" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="Salutation" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="MailingStreet" Type="nvarchar(max)" />
+          <Property Name="MailingCity" Type="nvarchar(max)" />
+          <Property Name="MailingState" Type="nvarchar(max)" />
+          <Property Name="MailingPostalCode" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="MobilePhone" Type="nvarchar(max)" />
+          <Property Name="HomePhone" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="OwnerID" Type="char" MaxLength="20" />
+          <Property Name="HomeEmail" Type="nvarchar(max)" />
+          <Property Name="WorkEmail" Type="nvarchar(max)" />
+          <Property Name="WorkPhone" Type="nvarchar(max)" />
+          <Property Name="HouseholdFamilyRoleID" Type="int" Nullable="false" />
+          <Property Name="ContactStatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactStatus">
+          <Key>
+            <PropertyRef Name="ContactStatusID" />
+          </Key>
+          <Property Name="ContactStatusID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HouseholdFamilyRoles">
+          <Key>
+            <PropertyRef Name="HouseholdFamilyRoleID" />
+          </Key>
+          <Property Name="HouseholdFamilyRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HouseholdNotes">
+          <Key>
+            <PropertyRef Name="HouseholdNoteID" />
+          </Key>
+          <Property Name="HouseholdNoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteTypeID" Type="int" Nullable="false" />
+          <Property Name="HouseholdID" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Households">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportedID" Type="char" MaxLength="20" />
+          <Property Name="OwnerID" Type="char" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Npo02FormulaMailingAddress" Type="nvarchar(max)" />
+          <Property Name="Npo02HouseholdEmail" Type="nvarchar(max)" />
+          <Property Name="Npo02HouseholdPhone" Type="nvarchar(max)" />
+          <Property Name="Npo02MailingCity" Type="nvarchar(max)" />
+          <Property Name="Npo02MailingPostalCode" Type="nvarchar(max)" />
+          <Property Name="Npo02MailingState" Type="nvarchar(max)" />
+          <Property Name="Npo02MailingStreet" Type="nvarchar(max)" />
+          <Property Name="Npo02FormalGreeting" Type="nvarchar(max)" />
+          <Property Name="Npo02InformalGreeting" Type="nvarchar(max)" />
+          <Property Name="CvmReID" Type="nvarchar(max)" />
+          <Property Name="ExportedToCvm" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CvmFormalGreeting" Type="nvarchar(max)" />
+          <Property Name="CvmInformalGreeting" Type="nvarchar(max)" />
+          <Property Name="GroupSource" Type="nvarchar(max)" />
+          <Property Name="HouseholdStatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HouseholdStatus">
+          <Key>
+            <PropertyRef Name="HouseholdStatusID" />
+          </Key>
+          <Property Name="HouseholdStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MailingListMembers">
+          <Key>
+            <PropertyRef Name="MailingListMemberID" />
+          </Key>
+          <Property Name="MailingListMemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailingListID" Type="int" Nullable="false" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailingLists">
+          <Key>
+            <PropertyRef Name="MailingListID" />
+          </Key>
+          <Property Name="MailingListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailingListTypeID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MailingListTypes">
+          <Key>
+            <PropertyRef Name="MailiningListTypeID" />
+          </Key>
+          <Property Name="MailiningListTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NoteTypes">
+          <Key>
+            <PropertyRef Name="NoteTypeID" />
+          </Key>
+          <Property Name="NoteTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HouseholdID" Type="int" />
+          <Property Name="TransTypeID" Type="int" />
+          <Property Name="TransIncrID" Type="int" />
+          <Property Name="TransMethID" Type="int" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionIncrement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransIncr" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TransactionMethod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransMethod" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransType" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK__AccountNo__NoteT__4CF5691D">
+          <End Role="NoteTypes" Type="Self.NoteTypes" Multiplicity="1" />
+          <End Role="AccountNotes" Type="Self.AccountNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="AccountNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContactNo__NoteT__4DE98D56">
+          <End Role="NoteTypes" Type="Self.NoteTypes" Multiplicity="1" />
+          <End Role="ContactNotes" Type="Self.ContactNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Household__NoteT__4EDDB18F">
+          <End Role="NoteTypes" Type="Self.NoteTypes" Multiplicity="1" />
+          <End Role="HouseholdNotes" Type="Self.HouseholdNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="HouseholdNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__House__5772F790">
+          <End Role="Households" Type="Self.Households" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Households">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__58671BC9">
+          <End Role="TransactionType" Type="Self.TransactionType" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__595B4002">
+          <End Role="TransactionIncrement" Type="Self.TransactionIncrement" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionIncrement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransIncrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__5A4F643B">
+          <End Role="TransactionMethod" Type="Self.TransactionMethod" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionMethod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransMethID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_AccountStatus_AccountStatusID">
+          <End Role="AccountStatus" Type="Self.AccountStatus" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountStatus">
+              <PropertyRef Name="AccountStatusID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_ContactStatus_ContactStatusID">
+          <End Role="ContactStatus" Type="Self.ContactStatus" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactStatus">
+              <PropertyRef Name="ContactStatusID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="ContactStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AccountNotes_dbo_Accounts_AccountID">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccountNotes" Type="Self.AccountNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccountNotes">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactNotes_dbo_Contacts_ContactID">
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactNotes" Type="Self.ContactNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_Accounts_AccountID">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID">
+          <End Role="HouseholdFamilyRoles" Type="Self.HouseholdFamilyRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseholdFamilyRoles">
+              <PropertyRef Name="HouseholdFamilyRoleID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="HouseholdFamilyRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_Households_HouseholdID">
+          <End Role="Households" Type="Self.Households" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Households">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_HouseholdNotes_dbo_Households_HouseholdID">
+          <End Role="Households" Type="Self.Households" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HouseholdNotes" Type="Self.HouseholdNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Households">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HouseholdNotes">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID">
+          <End Role="HouseholdStatus" Type="Self.HouseholdStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Households" Type="Self.Households" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseholdStatus">
+              <PropertyRef Name="HouseholdStatusID" />
+            </Principal>
+            <Dependent Role="Households">
+              <PropertyRef Name="HouseholdStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingListMembers_dbo_Contacts_ContactID">
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingListMembers" Type="Self.MailingListMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MailingListMembers">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID">
+          <End Role="MailingLists" Type="Self.MailingLists" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingListMembers" Type="Self.MailingListMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailingLists">
+              <PropertyRef Name="MailingListID" />
+            </Principal>
+            <Dependent Role="MailingListMembers">
+              <PropertyRef Name="MailingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID">
+          <End Role="MailingListTypes" Type="Self.MailingListTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingLists" Type="Self.MailingLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailingListTypes">
+              <PropertyRef Name="MailiningListTypeID" />
+            </Principal>
+            <Dependent Role="MailingLists">
+              <PropertyRef Name="MailingListTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WTJModelStoreContainer">
+          <EntitySet Name="AccountNotes" EntityType="Self.AccountNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountStatus" EntityType="Self.AccountStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactNotes" EntityType="Self.ContactNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactStatus" EntityType="Self.ContactStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseholdFamilyRoles" EntityType="Self.HouseholdFamilyRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseholdNotes" EntityType="Self.HouseholdNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Households" EntityType="Self.Households" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseholdStatus" EntityType="Self.HouseholdStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailingListMembers" EntityType="Self.MailingListMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailingLists" EntityType="Self.MailingLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailingListTypes" EntityType="Self.MailingListTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoteTypes" EntityType="Self.NoteTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionIncrement" EntityType="Self.TransactionIncrement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionMethod" EntityType="Self.TransactionMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AccountNo__NoteT__4CF5691D" Association="Self.FK__AccountNo__NoteT__4CF5691D">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="AccountNotes" EntitySet="AccountNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContactNo__NoteT__4DE98D56" Association="Self.FK__ContactNo__NoteT__4DE98D56">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Household__NoteT__4EDDB18F" Association="Self.FK__Household__NoteT__4EDDB18F">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="HouseholdNotes" EntitySet="HouseholdNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__House__5772F790" Association="Self.FK__Transacti__House__5772F790">
+            <End Role="Households" EntitySet="Households" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__58671BC9" Association="Self.FK__Transacti__Trans__58671BC9">
+            <End Role="TransactionType" EntitySet="TransactionType" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__595B4002" Association="Self.FK__Transacti__Trans__595B4002">
+            <End Role="TransactionIncrement" EntitySet="TransactionIncrement" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__5A4F643B" Association="Self.FK__Transacti__Trans__5A4F643B">
+            <End Role="TransactionMethod" EntitySet="TransactionMethod" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_AccountStatus_AccountStatusID" Association="Self.FK_Accounts_AccountStatus_AccountStatusID">
+            <End Role="AccountStatus" EntitySet="AccountStatus" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_ContactStatus_ContactStatusID" Association="Self.FK_Contacts_ContactStatus_ContactStatusID">
+            <End Role="ContactStatus" EntitySet="ContactStatus" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AccountNotes_dbo_Accounts_AccountID" Association="Self.FK_dbo_AccountNotes_dbo_Accounts_AccountID">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountNotes" EntitySet="AccountNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactNotes_dbo_Contacts_ContactID" Association="Self.FK_dbo_ContactNotes_dbo_Contacts_ContactID">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_Accounts_AccountID" Association="Self.FK_dbo_Contacts_dbo_Accounts_AccountID">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID" Association="Self.FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID">
+            <End Role="HouseholdFamilyRoles" EntitySet="HouseholdFamilyRoles" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_Households_HouseholdID" Association="Self.FK_dbo_Contacts_dbo_Households_HouseholdID">
+            <End Role="Households" EntitySet="Households" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_HouseholdNotes_dbo_Households_HouseholdID" Association="Self.FK_dbo_HouseholdNotes_dbo_Households_HouseholdID">
+            <End Role="Households" EntitySet="Households" />
+            <End Role="HouseholdNotes" EntitySet="HouseholdNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID" Association="Self.FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID">
+            <End Role="HouseholdStatus" EntitySet="HouseholdStatus" />
+            <End Role="Households" EntitySet="Households" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingListMembers_dbo_Contacts_ContactID" Association="Self.FK_dbo_MailingListMembers_dbo_Contacts_ContactID">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="MailingListMembers" EntitySet="MailingListMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID" Association="Self.FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID">
+            <End Role="MailingLists" EntitySet="MailingLists" />
+            <End Role="MailingListMembers" EntitySet="MailingListMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID" Association="Self.FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID">
+            <End Role="MailingListTypes" EntitySet="MailingListTypes" />
+            <End Role="MailingLists" EntitySet="MailingLists" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WTJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccountNote">
+          <Key>
+            <PropertyRef Name="AccountNoteID" />
+          </Key>
+          <Property Name="AccountNoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteTypeID" Type="Int32" Nullable="false" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_dbo_AccountNotes_dbo_Accounts_AccountID" FromRole="AccountNotes" ToRole="Accounts" />
+          <NavigationProperty Name="NoteType" Relationship="Self.FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID" FromRole="AccountNotes" ToRole="NoteTypes" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportedID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BillingPostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingPostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SourceGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountStatusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountNotes" Relationship="Self.FK_dbo_AccountNotes_dbo_Accounts_AccountID" FromRole="Accounts" ToRole="AccountNotes" />
+          <NavigationProperty Name="AccountStatu" Relationship="Self.FK_Accounts_AccountStatus_AccountStatusID" FromRole="Accounts" ToRole="AccountStatus" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_dbo_Contacts_dbo_Accounts_AccountID" FromRole="Accounts" ToRole="Contacts" />
+        </EntityType>
+        <EntityType Name="AccountStatus">
+          <Key>
+            <PropertyRef Name="AccountStatusID" />
+          </Key>
+          <Property Name="AccountStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_AccountStatus_AccountStatusID" FromRole="AccountStatus" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="ContactNote">
+          <Key>
+            <PropertyRef Name="ContactNoteID" />
+          </Key>
+          <Property Name="ContactNoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_dbo_ContactNotes_dbo_Contacts_ContactID" FromRole="ContactNotes" ToRole="Contacts" />
+          <NavigationProperty Name="NoteType" Relationship="Self.FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID" FromRole="ContactNotes" ToRole="NoteTypes" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HouseholdID" Type="Int32" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="ImportedID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="HouseholdImportedID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="AccountImportedID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailingStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailingCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailingState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailingPostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HomePhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="HomeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseholdFamilyRoleID" Type="Int32" Nullable="false" />
+          <Property Name="ContactStatusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_dbo_Contacts_dbo_Accounts_AccountID" FromRole="Contacts" ToRole="Accounts" />
+          <NavigationProperty Name="ContactNotes" Relationship="Self.FK_dbo_ContactNotes_dbo_Contacts_ContactID" FromRole="Contacts" ToRole="ContactNotes" />
+          <NavigationProperty Name="ContactStatu" Relationship="Self.FK_Contacts_ContactStatus_ContactStatusID" FromRole="Contacts" ToRole="ContactStatus" />
+          <NavigationProperty Name="HouseholdFamilyRole" Relationship="Self.FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID" FromRole="Contacts" ToRole="HouseholdFamilyRoles" />
+          <NavigationProperty Name="Household" Relationship="Self.FK_dbo_Contacts_dbo_Households_HouseholdID" FromRole="Contacts" ToRole="Households" />
+          <NavigationProperty Name="MailingListMembers" Relationship="Self.FK_dbo_MailingListMembers_dbo_Contacts_ContactID" FromRole="Contacts" ToRole="MailingListMembers" />
+        </EntityType>
+        <EntityType Name="ContactStatus">
+          <Key>
+            <PropertyRef Name="ContactStatusID" />
+          </Key>
+          <Property Name="ContactStatusID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_ContactStatus_ContactStatusID" FromRole="ContactStatus" ToRole="Contacts" />
+        </EntityType>
+        <EntityType Name="HouseholdFamilyRole">
+          <Key>
+            <PropertyRef Name="HouseholdFamilyRoleID" />
+          </Key>
+          <Property Name="HouseholdFamilyRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID" FromRole="HouseholdFamilyRoles" ToRole="Contacts" />
+        </EntityType>
+        <EntityType Name="HouseholdNote">
+          <Key>
+            <PropertyRef Name="HouseholdNoteID" />
+          </Key>
+          <Property Name="HouseholdNoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteTypeID" Type="Int32" Nullable="false" />
+          <Property Name="HouseholdID" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Household" Relationship="Self.FK_dbo_HouseholdNotes_dbo_Households_HouseholdID" FromRole="HouseholdNotes" ToRole="Households" />
+          <NavigationProperty Name="NoteType" Relationship="Self.FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID" FromRole="HouseholdNotes" ToRole="NoteTypes" />
+        </EntityType>
+        <EntityType Name="Household">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportedID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="OwnerID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02FormulaMailingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02HouseholdEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02HouseholdPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02MailingCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02MailingPostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02MailingState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02MailingStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02FormalGreeting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Npo02InformalGreeting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CvmReID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExportedToCvm" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CvmFormalGreeting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CvmInformalGreeting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GroupSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseholdStatusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_dbo_Contacts_dbo_Households_HouseholdID" FromRole="Households" ToRole="Contacts" />
+          <NavigationProperty Name="HouseholdNotes" Relationship="Self.FK_dbo_HouseholdNotes_dbo_Households_HouseholdID" FromRole="Households" ToRole="HouseholdNotes" />
+          <NavigationProperty Name="HouseholdStatu" Relationship="Self.FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID" FromRole="Households" ToRole="HouseholdStatus" />
+          <NavigationProperty Name="Transactions" Relationship="WTJModel.FK__Transacti__House__5772F790" FromRole="Household" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="HouseholdStatus">
+          <Key>
+            <PropertyRef Name="HouseholdStatusID" />
+          </Key>
+          <Property Name="HouseholdStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Households" Relationship="Self.FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID" FromRole="HouseholdStatus" ToRole="Households" />
+        </EntityType>
+        <EntityType Name="MailingListMember">
+          <Key>
+            <PropertyRef Name="MailingListMemberID" />
+          </Key>
+          <Property Name="MailingListMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailingListID" Type="Int32" Nullable="false" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_dbo_MailingListMembers_dbo_Contacts_ContactID" FromRole="MailingListMembers" ToRole="Contacts" />
+          <NavigationProperty Name="MailingList" Relationship="Self.FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID" FromRole="MailingListMembers" ToRole="MailingLists" />
+        </EntityType>
+        <EntityType Name="MailingList">
+          <Key>
+            <PropertyRef Name="MailingListID" />
+          </Key>
+          <Property Name="MailingListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailingListTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MailingListMembers" Relationship="Self.FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID" FromRole="MailingLists" ToRole="MailingListMembers" />
+          <NavigationProperty Name="MailingListType" Relationship="Self.FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID" FromRole="MailingLists" ToRole="MailingListTypes" />
+        </EntityType>
+        <EntityType Name="MailingListType">
+          <Key>
+            <PropertyRef Name="MailiningListTypeID" />
+          </Key>
+          <Property Name="MailiningListTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MailingLists" Relationship="Self.FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID" FromRole="MailingListTypes" ToRole="MailingLists" />
+        </EntityType>
+        <EntityType Name="NoteType">
+          <Key>
+            <PropertyRef Name="NoteTypeID" />
+          </Key>
+          <Property Name="NoteTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountNotes" Relationship="Self.FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID" FromRole="NoteTypes" ToRole="AccountNotes" />
+          <NavigationProperty Name="ContactNotes" Relationship="Self.FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID" FromRole="NoteTypes" ToRole="ContactNotes" />
+          <NavigationProperty Name="HouseholdNotes" Relationship="Self.FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID" FromRole="NoteTypes" ToRole="HouseholdNotes" />
+        </EntityType>
+        <Association Name="FK_dbo_AccountNotes_dbo_Accounts_AccountID">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccountNotes" Type="Self.AccountNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccountNotes">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID">
+          <End Role="NoteTypes" Type="Self.NoteType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccountNotes" Type="Self.AccountNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="AccountNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_AccountStatus_AccountStatusID">
+          <End Role="AccountStatus" Type="WTJModel.AccountStatus" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountStatus">
+              <PropertyRef Name="AccountStatusID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_Accounts_AccountID">
+          <End Role="Accounts" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactNotes_dbo_Contacts_ContactID">
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactNotes" Type="Self.ContactNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID">
+          <End Role="NoteTypes" Type="Self.NoteType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactNotes" Type="Self.ContactNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="ContactNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_ContactStatus_ContactStatusID">
+          <End Role="ContactStatus" Type="WTJModel.ContactStatus" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactStatus">
+              <PropertyRef Name="ContactStatusID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="ContactStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID">
+          <End Role="HouseholdFamilyRoles" Type="Self.HouseholdFamilyRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseholdFamilyRoles">
+              <PropertyRef Name="HouseholdFamilyRoleID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="HouseholdFamilyRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Contacts_dbo_Households_HouseholdID">
+          <End Role="Households" Type="Self.Household" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Households">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingListMembers_dbo_Contacts_ContactID">
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingListMembers" Type="Self.MailingListMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MailingListMembers">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_HouseholdNotes_dbo_Households_HouseholdID">
+          <End Role="Households" Type="Self.Household" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HouseholdNotes" Type="Self.HouseholdNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Households">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HouseholdNotes">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID">
+          <End Role="NoteTypes" Type="Self.NoteType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HouseholdNotes" Type="Self.HouseholdNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteTypes">
+              <PropertyRef Name="NoteTypeID" />
+            </Principal>
+            <Dependent Role="HouseholdNotes">
+              <PropertyRef Name="NoteTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID">
+          <End Role="HouseholdStatus" Type="WTJModel.HouseholdStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Households" Type="Self.Household" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseholdStatus">
+              <PropertyRef Name="HouseholdStatusID" />
+            </Principal>
+            <Dependent Role="Households">
+              <PropertyRef Name="HouseholdStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID">
+          <End Role="MailingLists" Type="Self.MailingList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingListMembers" Type="Self.MailingListMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailingLists">
+              <PropertyRef Name="MailingListID" />
+            </Principal>
+            <Dependent Role="MailingListMembers">
+              <PropertyRef Name="MailingListID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID">
+          <End Role="MailingListTypes" Type="Self.MailingListType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MailingLists" Type="Self.MailingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailingListTypes">
+              <PropertyRef Name="MailiningListTypeID" />
+            </Principal>
+            <Dependent Role="MailingLists">
+              <PropertyRef Name="MailingListTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WTJContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountNotes" EntityType="Self.AccountNote" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="AccountStatuses" EntityType="WTJModel.AccountStatus" />
+          <EntitySet Name="ContactNotes" EntityType="Self.ContactNote" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="ContactStatuses" EntityType="WTJModel.ContactStatus" />
+          <EntitySet Name="HouseholdFamilyRoles" EntityType="Self.HouseholdFamilyRole" />
+          <EntitySet Name="HouseholdNotes" EntityType="Self.HouseholdNote" />
+          <EntitySet Name="Households" EntityType="Self.Household" />
+          <EntitySet Name="HouseholdStatuses" EntityType="WTJModel.HouseholdStatus" />
+          <EntitySet Name="MailingListMembers" EntityType="Self.MailingListMember" />
+          <EntitySet Name="MailingLists" EntityType="Self.MailingList" />
+          <EntitySet Name="MailingListTypes" EntityType="Self.MailingListType" />
+          <EntitySet Name="NoteTypes" EntityType="Self.NoteType" />
+          <AssociationSet Name="FK_dbo_AccountNotes_dbo_Accounts_AccountID" Association="Self.FK_dbo_AccountNotes_dbo_Accounts_AccountID">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountNotes" EntitySet="AccountNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID" Association="Self.FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="AccountNotes" EntitySet="AccountNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_AccountStatus_AccountStatusID" Association="Self.FK_Accounts_AccountStatus_AccountStatusID">
+            <End Role="AccountStatus" EntitySet="AccountStatuses" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_Accounts_AccountID" Association="Self.FK_dbo_Contacts_dbo_Accounts_AccountID">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactNotes_dbo_Contacts_ContactID" Association="Self.FK_dbo_ContactNotes_dbo_Contacts_ContactID">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID" Association="Self.FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="ContactNotes" EntitySet="ContactNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_ContactStatus_ContactStatusID" Association="Self.FK_Contacts_ContactStatus_ContactStatusID">
+            <End Role="ContactStatus" EntitySet="ContactStatuses" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID" Association="Self.FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID">
+            <End Role="HouseholdFamilyRoles" EntitySet="HouseholdFamilyRoles" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Contacts_dbo_Households_HouseholdID" Association="Self.FK_dbo_Contacts_dbo_Households_HouseholdID">
+            <End Role="Households" EntitySet="Households" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingListMembers_dbo_Contacts_ContactID" Association="Self.FK_dbo_MailingListMembers_dbo_Contacts_ContactID">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="MailingListMembers" EntitySet="MailingListMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_HouseholdNotes_dbo_Households_HouseholdID" Association="Self.FK_dbo_HouseholdNotes_dbo_Households_HouseholdID">
+            <End Role="Households" EntitySet="Households" />
+            <End Role="HouseholdNotes" EntitySet="HouseholdNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID" Association="Self.FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID">
+            <End Role="NoteTypes" EntitySet="NoteTypes" />
+            <End Role="HouseholdNotes" EntitySet="HouseholdNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID" Association="Self.FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID">
+            <End Role="HouseholdStatus" EntitySet="HouseholdStatuses" />
+            <End Role="Households" EntitySet="Households" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID" Association="Self.FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID">
+            <End Role="MailingLists" EntitySet="MailingLists" />
+            <End Role="MailingListMembers" EntitySet="MailingListMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID" Association="Self.FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID">
+            <End Role="MailingListTypes" EntitySet="MailingListTypes" />
+            <End Role="MailingLists" EntitySet="MailingLists" />
+          </AssociationSet>
+          <EntitySet Name="Transactions" EntityType="WTJModel.Transaction" />
+          <EntitySet Name="TransactionIncrements" EntityType="WTJModel.TransactionIncrement" />
+          <EntitySet Name="TransactionMethods" EntityType="WTJModel.TransactionMethod" />
+          <EntitySet Name="TransactionTypes" EntityType="WTJModel.TransactionType" />
+          <AssociationSet Name="FK__Transacti__House__5772F790" Association="WTJModel.FK__Transacti__House__5772F790">
+            <End Role="Household" EntitySet="Households" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__58671BC9" Association="WTJModel.FK__Transacti__Trans__58671BC9">
+            <End Role="TransactionType" EntitySet="TransactionTypes" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__595B4002" Association="WTJModel.FK__Transacti__Trans__595B4002">
+            <End Role="TransactionIncrement" EntitySet="TransactionIncrements" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__5A4F643B" Association="WTJModel.FK__Transacti__Trans__5A4F643B">
+            <End Role="TransactionMethod" EntitySet="TransactionMethods" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HouseholdID" Type="Int32" />
+          <Property Name="TransTypeID" Type="Int32" />
+          <Property Name="TransIncrID" Type="Int32" />
+          <Property Name="TransMethID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="Household" Relationship="WTJModel.FK__Transacti__House__5772F790" FromRole="Transaction" ToRole="Household" />
+          <NavigationProperty Name="TransactionType" Relationship="WTJModel.FK__Transacti__Trans__58671BC9" FromRole="Transaction" ToRole="TransactionType" />
+          <NavigationProperty Name="TransactionIncrement" Relationship="WTJModel.FK__Transacti__Trans__595B4002" FromRole="Transaction" ToRole="TransactionIncrement" />
+          <NavigationProperty Name="TransactionMethod" Relationship="WTJModel.FK__Transacti__Trans__5A4F643B" FromRole="Transaction" ToRole="TransactionMethod" />
+        </EntityType>
+        <EntityType Name="TransactionIncrement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransIncr" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transactions" Relationship="WTJModel.FK__Transacti__Trans__595B4002" FromRole="TransactionIncrement" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="TransactionMethod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransMethod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transactions" Relationship="WTJModel.FK__Transacti__Trans__5A4F643B" FromRole="TransactionMethod" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transactions" Relationship="WTJModel.FK__Transacti__Trans__58671BC9" FromRole="TransactionType" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK__Transacti__House__5772F790">
+          <End Type="WTJModel.Household" Role="Household" Multiplicity="0..1" />
+          <End Type="WTJModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Household">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="HouseholdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__58671BC9">
+          <End Type="WTJModel.TransactionType" Role="TransactionType" Multiplicity="0..1" />
+          <End Type="WTJModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__595B4002">
+          <End Type="WTJModel.TransactionIncrement" Role="TransactionIncrement" Multiplicity="0..1" />
+          <End Type="WTJModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionIncrement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransIncrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__5A4F643B">
+          <End Type="WTJModel.TransactionMethod" Role="TransactionMethod" Multiplicity="0..1" />
+          <End Type="WTJModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionMethod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransMethID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WTJModelStoreContainer" CdmEntityContainer="WTJContext">
+          <EntitySetMapping Name="AccountNotes">
+            <EntityTypeMapping TypeName="WTJModel.AccountNote">
+              <MappingFragment StoreEntitySet="AccountNotes">
+                <ScalarProperty Name="AccountNoteID" ColumnName="AccountNoteID" />
+                <ScalarProperty Name="NoteTypeID" ColumnName="NoteTypeID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="WTJModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImportedID" ColumnName="ImportedID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="BillingStreet" ColumnName="BillingStreet" />
+                <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+                <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+                <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
+                <ScalarProperty Name="ShippingStreet" ColumnName="ShippingStreet" />
+                <ScalarProperty Name="ShippingCity" ColumnName="ShippingCity" />
+                <ScalarProperty Name="ShippingState" ColumnName="ShippingState" />
+                <ScalarProperty Name="ShippingPostalCode" ColumnName="ShippingPostalCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="SourceGroup" ColumnName="SourceGroup" />
+                <ScalarProperty Name="AccountStatusID" ColumnName="AccountStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountStatuses">
+            <EntityTypeMapping TypeName="WTJModel.AccountStatus">
+              <MappingFragment StoreEntitySet="AccountStatus">
+                <ScalarProperty Name="AccountStatusID" ColumnName="AccountStatusID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactNotes">
+            <EntityTypeMapping TypeName="WTJModel.ContactNote">
+              <MappingFragment StoreEntitySet="ContactNotes">
+                <ScalarProperty Name="ContactNoteID" ColumnName="ContactNoteID" />
+                <ScalarProperty Name="NoteTypeID" ColumnName="NoteTypeID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="WTJModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ImportedID" ColumnName="ImportedID" />
+                <ScalarProperty Name="HouseholdImportedID" ColumnName="HouseholdImportedID" />
+                <ScalarProperty Name="AccountImportedID" ColumnName="AccountImportedID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MailingStreet" ColumnName="MailingStreet" />
+                <ScalarProperty Name="MailingCity" ColumnName="MailingCity" />
+                <ScalarProperty Name="MailingState" ColumnName="MailingState" />
+                <ScalarProperty Name="MailingPostalCode" ColumnName="MailingPostalCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="HomeEmail" ColumnName="HomeEmail" />
+                <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="HouseholdFamilyRoleID" ColumnName="HouseholdFamilyRoleID" />
+                <ScalarProperty Name="ContactStatusID" ColumnName="ContactStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactStatuses">
+            <EntityTypeMapping TypeName="WTJModel.ContactStatus">
+              <MappingFragment StoreEntitySet="ContactStatus">
+                <ScalarProperty Name="ContactStatusID" ColumnName="ContactStatusID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseholdFamilyRoles">
+            <EntityTypeMapping TypeName="WTJModel.HouseholdFamilyRole">
+              <MappingFragment StoreEntitySet="HouseholdFamilyRoles">
+                <ScalarProperty Name="HouseholdFamilyRoleID" ColumnName="HouseholdFamilyRoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseholdNotes">
+            <EntityTypeMapping TypeName="WTJModel.HouseholdNote">
+              <MappingFragment StoreEntitySet="HouseholdNotes">
+                <ScalarProperty Name="HouseholdNoteID" ColumnName="HouseholdNoteID" />
+                <ScalarProperty Name="NoteTypeID" ColumnName="NoteTypeID" />
+                <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Households">
+            <EntityTypeMapping TypeName="WTJModel.Household">
+              <MappingFragment StoreEntitySet="Households">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImportedID" ColumnName="ImportedID" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Npo02FormulaMailingAddress" ColumnName="Npo02FormulaMailingAddress" />
+                <ScalarProperty Name="Npo02HouseholdEmail" ColumnName="Npo02HouseholdEmail" />
+                <ScalarProperty Name="Npo02HouseholdPhone" ColumnName="Npo02HouseholdPhone" />
+                <ScalarProperty Name="Npo02MailingCity" ColumnName="Npo02MailingCity" />
+                <ScalarProperty Name="Npo02MailingPostalCode" ColumnName="Npo02MailingPostalCode" />
+                <ScalarProperty Name="Npo02MailingState" ColumnName="Npo02MailingState" />
+                <ScalarProperty Name="Npo02MailingStreet" ColumnName="Npo02MailingStreet" />
+                <ScalarProperty Name="Npo02FormalGreeting" ColumnName="Npo02FormalGreeting" />
+                <ScalarProperty Name="Npo02InformalGreeting" ColumnName="Npo02InformalGreeting" />
+                <ScalarProperty Name="CvmReID" ColumnName="CvmReID" />
+                <ScalarProperty Name="ExportedToCvm" ColumnName="ExportedToCvm" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CvmFormalGreeting" ColumnName="CvmFormalGreeting" />
+                <ScalarProperty Name="CvmInformalGreeting" ColumnName="CvmInformalGreeting" />
+                <ScalarProperty Name="GroupSource" ColumnName="GroupSource" />
+                <ScalarProperty Name="HouseholdStatusID" ColumnName="HouseholdStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseholdStatuses">
+            <EntityTypeMapping TypeName="WTJModel.HouseholdStatus">
+              <MappingFragment StoreEntitySet="HouseholdStatus">
+                <ScalarProperty Name="HouseholdStatusID" ColumnName="HouseholdStatusID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailingListMembers">
+            <EntityTypeMapping TypeName="WTJModel.MailingListMember">
+              <MappingFragment StoreEntitySet="MailingListMembers">
+                <ScalarProperty Name="MailingListMemberID" ColumnName="MailingListMemberID" />
+                <ScalarProperty Name="MailingListID" ColumnName="MailingListID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailingLists">
+            <EntityTypeMapping TypeName="WTJModel.MailingList">
+              <MappingFragment StoreEntitySet="MailingLists">
+                <ScalarProperty Name="MailingListID" ColumnName="MailingListID" />
+                <ScalarProperty Name="MailingListTypeID" ColumnName="MailingListTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailingListTypes">
+            <EntityTypeMapping TypeName="WTJModel.MailingListType">
+              <MappingFragment StoreEntitySet="MailingListTypes">
+                <ScalarProperty Name="MailiningListTypeID" ColumnName="MailiningListTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoteTypes">
+            <EntityTypeMapping TypeName="WTJModel.NoteType">
+              <MappingFragment StoreEntitySet="NoteTypes">
+                <ScalarProperty Name="NoteTypeID" ColumnName="NoteTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="WTJModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TransMethID" ColumnName="TransMethID" />
+                <ScalarProperty Name="TransIncrID" ColumnName="TransIncrID" />
+                <ScalarProperty Name="TransTypeID" ColumnName="TransTypeID" />
+                <ScalarProperty Name="HouseholdID" ColumnName="HouseholdID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionIncrements">
+            <EntityTypeMapping TypeName="WTJModel.TransactionIncrement">
+              <MappingFragment StoreEntitySet="TransactionIncrement">
+                <ScalarProperty Name="TransIncr" ColumnName="TransIncr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionMethods">
+            <EntityTypeMapping TypeName="WTJModel.TransactionMethod">
+              <MappingFragment StoreEntitySet="TransactionMethod">
+                <ScalarProperty Name="TransMethod" ColumnName="TransMethod" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionTypes">
+            <EntityTypeMapping TypeName="WTJModel.TransactionType">
+              <MappingFragment StoreEntitySet="TransactionType">
+                <ScalarProperty Name="TransType" ColumnName="TransType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

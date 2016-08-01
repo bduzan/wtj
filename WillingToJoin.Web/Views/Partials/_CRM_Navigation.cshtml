@@ -1,0 +1,84 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@using Microsoft.AspNet.Identity
+@using WillingToJoin.Web.Helpers
+
+@if (Request.IsAuthenticated)
+{
+
+var home = CurrentPage.AncestorOrSelf("cRM");
+var CRM = Umbraco.TypedContentAtRoot().FirstOrDefault().Children.Where(x => x.DocumentTypeAlias == "cRM").FirstOrDefault().Children;
+var test = CurrentPage.AncestorOrSelf("cRM").Children;
+var member = umbraco.cms.businesslogic.member.Member.GetCurrentMember();
+    
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">@member.getProperty("firstName").Value</strong>
+                            </span> 
+                        </span>
+                    </a>
+                        @if (umbraco.library.IsLoggedOn()) {
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                   <li> 
+                                       @using (Html.BeginForm("LogOff", "ManageAccount", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                         {
+                                           @Html.AntiForgeryToken()     
+                                          <a class="text-green" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                       
+                                        }
+                                   </li>
+                             </ul>
+                        }
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+
+            @if (!umbraco.library.IsLoggedOn()) { 
+            <li>
+                <a href="/crm/login"><i class="fa fa-sign-in"></i> <span class="nav-label">Login</span> </a>
+            </li>
+            <li>
+                <a href="/crm/register"><i class="fa fa-sign-in"></i> <span class="nav-label">Register</span> </a>
+            </li>
+            <li>
+                <a href="/crm/forgot-password"><i class="fa fa-lock"></i> <span class="nav-label">Forgot Password</span> </a>
+            </li>
+            }
+
+            else { 
+            @*<li>
+                <a href="/crm/contact"><i class="fa fa-phone"></i> <span class="nav-label">Contact</span> </a>
+            </li>
+            <li>
+                <a href="/crm/account"><i class="fa fa-credit-card"></i> <span class="nav-label">Account</span> </a>
+            </li>
+            <li>
+                <a href="/crm/household"><i class="fa fa-home"></i> <span class="nav-label">Household</span> </a>
+            </li>
+            <li>
+                <a href="/crm/reset-password"><i class="fa fa-key"></i> <span class="nav-label">Reset Password</span> </a>
+            </li>*@
+                foreach (var page in test)
+                {
+                    bool check = Convert.ToBoolean(page.umbracoNaviHide);
+                    if (check == false)
+                    { 
+                        <li>
+                            <a class="@(page.IsAncestorOrSelf(CurrentPage) ? "current" : null)" href="@page.Url"><i class="@page.iconClass"></i><span class="nav-label">@page.Name</span> </a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</nav>
+
+}

@@ -1,0 +1,336 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Text.RegularExpressions
+@using System.Web.Mvc.Html
+
+
+@{
+    Layout = "Layout.cshtml";
+    // var root = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf();
+    var root = Model.Content.AncestorOrSelf(1).DescendantsOrSelf().Where("Visible");
+    var a = Umbraco.TypedContentAtRoot().First().Children;
+    var aq = Request.QueryString["s"];
+    var aasdfq = 545;
+
+}
+@section css{
+    <style>
+        p {
+            margin: 0;
+        }
+
+        header + article {
+            margin-top: 30px !important;
+        }
+
+        .search-result {
+            width: 88% !important;
+            margin: 0 auto;
+        }
+
+        .full-width {
+            width: 100% !important;
+        }
+
+        .x-container.max.width.offset {
+            width: 100%;
+        }
+
+        .x-landmark-breadcrumbs-wrap {
+            width: 88% !important;
+            margin: 0 auto;
+        }
+
+        span.match {
+            color: #2642d1;
+            font-weight: bold;
+        }
+
+        .hentry {
+            margin-top: 0px !important;
+        }
+
+        article header {
+            margin-top: 50px !important;
+        }
+    </style>
+}
+<header class="x-header-landmark">
+    <div class="x-container max width full-width">
+        <div class="x-landmark-breadcrumbs-wrap">
+            <div class="x-landmark">
+                <h1 class="h-landmark"><span>Search Results</span></h1>
+            </div>
+
+            <div class="x-breadcrumbs-wrap">
+                @Html.Partial("_Breadcrumb")
+            </div>
+
+
+        </div>
+    </div>
+</header>
+@if (!string.IsNullOrEmpty(Request.QueryString["s"]))
+{
+    // var aasdf = Umbraco.TypedSearch(Request.QueryString["s"]);
+
+    string qs = Request.QueryString["s"];
+
+    string qsUpperCase = Request.QueryString["s"].ToUpper();
+
+    string qsLowaerCase = Request.QueryString["s"].ToLower();
+
+    string qsFirstLatterCapitalCase = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(qs.ToLower());
+
+    //  qs = qsUpperCase.ToLower();
+
+
+
+    foreach (var result in root)
+    {
+
+
+        <article class="page type-page hentry search-result">
+            <div class="entry-wrap">
+                @if (result.Name.ToLower().Contains(qsLowaerCase) || result.GetProperty("pageSubHeading") != null && result.GetProperty("pageSubHeading").HasValue && result.GetProperty("pageSubHeading").Value.ToString().Contains(qs) || result.GetProperty("pageSubHeading") != null && result.GetProperty("pageSubHeading").HasValue && result.GetProperty("pageSubHeading").Value.ToString().Contains(qsUpperCase) || result.GetProperty("pageSubHeading") != null && result.GetProperty("pageSubHeading").HasValue && result.GetProperty("pageSubHeading").Value.ToString().Contains(qsLowaerCase) || result.GetProperty("pageSubHeading") != null && result.GetProperty("pageSubHeading").HasValue && result.GetProperty("pageSubHeading").Value.ToString().Contains(qsFirstLatterCapitalCase) || result.GetProperty("bodyText") != null && result.GetProperty("bodyText").HasValue && result.GetProperty("bodyText").Value.ToString().Contains(qs) || result.GetProperty("bodyText") != null && result.GetProperty("bodyText").HasValue && result.GetProperty("bodyText").Value.ToString().Contains(qsUpperCase) || result.GetProperty("bodyText") != null && result.GetProperty("bodyText").HasValue && result.GetProperty("bodyText").Value.ToString().Contains(qsLowaerCase) || result.GetProperty("bodyText") != null && result.GetProperty("bodyText").HasValue && result.GetProperty("bodyText").Value.ToString().Contains(qsFirstLatterCapitalCase) || result.GetProperty("leftColumn") != null && result.GetProperty("leftColumn").HasValue && result.GetProperty("leftColumn").Value.ToString().Contains(qs) || result.GetProperty("leftColumn") != null && result.GetProperty("leftColumn").HasValue && result.GetProperty("leftColumn").Value.ToString().Contains(qsUpperCase) || result.GetProperty("leftColumn") != null && result.GetProperty("leftColumn").HasValue && result.GetProperty("leftColumn").Value.ToString().Contains(qsLowaerCase) || result.GetProperty("leftColumn") != null && result.GetProperty("leftColumn").HasValue && result.GetProperty("leftColumn").Value.ToString().Contains(qsFirstLatterCapitalCase))
+                {
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            <a href="@result.Url" title="@result.Name">@result.Name</a>
+                        </h2>
+                    </header>
+                }
+                @if (result.GetProperty("pageSubHeading") != null && result.GetProperty("pageSubHeading").HasValue)
+                {
+                    if (result.GetProperty("pageSubHeading").Value.ToString().Contains(qs) || result.GetProperty("pageSubHeading").Value.ToString().Contains(qsUpperCase) || result.GetProperty("pageSubHeading").Value.ToString().Contains(qsFirstLatterCapitalCase) || result.GetProperty("pageSubHeading").Value.ToString().Contains(qsLowaerCase))
+                    {
+                        var pageSubHeading = Convert.ToString(result.GetProperty("pageSubHeading").Value);
+                        pageSubHeading = Regex.Replace(pageSubHeading, @"<.*?>", String.Empty, RegexOptions.IgnoreCase);
+
+                        if (pageSubHeading.Length > 300)
+                        {
+                            string text = pageSubHeading.ToString();
+                            int startIndex = 0;
+                            if (text.IndexOf(qsLowaerCase) > 0)
+                            {
+
+                                startIndex = text.IndexOf(qsLowaerCase);
+                            }
+                            else if (text.IndexOf(qsUpperCase) > 0)
+                            {
+                                startIndex = text.IndexOf(qsUpperCase);
+                            }
+                            else
+                            {
+                                startIndex = text.IndexOf(qsFirstLatterCapitalCase);
+                            }
+                            int lotalLength = text.Length;
+                            int lastIndex = lotalLength;
+                            if (startIndex > 150)
+                            {
+                                startIndex = startIndex - 150;
+                            }
+                            else
+                            {
+                                startIndex = 0;
+                            }
+                            if (lotalLength > 300)
+                            {
+                                if (startIndex == 0)
+                                {
+                                    lastIndex = 300;
+                                }
+                                else
+                                {
+                                    int difference = lotalLength - startIndex;
+                                    if (difference > 300)
+                                    {
+                                        lastIndex = 300;
+                                    }
+                                    else
+                                    {
+                                        lastIndex = difference;
+                                    }
+                                }
+                            }
+
+                            pageSubHeading = pageSubHeading.ToString().Substring(startIndex, lastIndex);
+                            pageSubHeading = pageSubHeading.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <div class="entry-content excerpt">
+                                <p>@Html.Raw(pageSubHeading + "...<a class='more-link' href=" + @result.Url + ">Read More</a>")</p>
+                            </div>
+                        }
+                        else
+                        {
+                            pageSubHeading = pageSubHeading.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            pageSubHeading = pageSubHeading.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <p>@Html.Raw(pageSubHeading)</p>
+                        }
+                    }
+                }
+                @if (result.GetProperty("bodyText") != null && result.GetProperty("bodyText").HasValue)
+                {
+                    if (result.GetProperty("bodyText").Value.ToString().Contains(qs) || result.GetProperty("bodyText").Value.ToString().Contains(qsUpperCase) || result.GetProperty("bodyText").Value.ToString().Contains(qsFirstLatterCapitalCase) || result.GetProperty("bodyText").Value.ToString().Contains(qsLowaerCase))
+                    {
+                        var bodyText = Convert.ToString(result.GetProperty("bodyText").Value);
+                        bodyText = Regex.Replace(bodyText, @"<.*?>", String.Empty, RegexOptions.IgnoreCase);
+                        if (bodyText.Length > 300)
+                        {
+                            string text = bodyText.ToString();
+                            int startIndex = 0;
+                            if (text.IndexOf(qsLowaerCase) > 0)
+                            {
+
+                                startIndex = text.IndexOf(qsLowaerCase);
+                            }
+                            else if (text.IndexOf(qsUpperCase) > 0)
+                            {
+                                startIndex = text.IndexOf(qsUpperCase);
+                            }
+                            else
+                            {
+                                startIndex = text.IndexOf(qsFirstLatterCapitalCase);
+                            }
+                            int lotalLength = text.Length;
+                            int lastIndex = lotalLength;
+                            if (startIndex > 150)
+                            {
+                                startIndex = startIndex - 150;
+                            }
+                            else
+                            {
+                                startIndex = 0;
+                            }
+                            if (lotalLength > 300)
+                            {
+                                if (startIndex == 0)
+                                {
+                                    lastIndex = 300;
+                                }
+                                else
+                                {
+                                    int difference = lotalLength - startIndex;
+                                    if (difference > 300)
+                                    {
+                                        lastIndex = 300;
+                                    }
+                                    else
+                                    {
+                                        lastIndex = difference;
+                                    }
+                                }
+                            }
+                            bodyText = bodyText.ToString().Substring(startIndex, lastIndex);
+                            bodyText = bodyText.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            bodyText = bodyText.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            bodyText = bodyText.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            bodyText = bodyText.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <p>@Html.Raw(bodyText + "...<a class='more-link' href=" + @result.Url + ">Read More</a>")</p>
+                        }
+                        else
+                        {
+                            bodyText = bodyText.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            bodyText = bodyText.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            bodyText = bodyText.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            bodyText = bodyText.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <p>@Html.Raw(bodyText)</p>
+                        }
+                    }
+
+                }
+
+                @if (result.GetProperty("leftColumn") != null && result.GetProperty("leftColumn").HasValue)
+                {
+                    if (result.GetProperty("leftColumn").Value.ToString().Contains(qs) || result.GetProperty("leftColumn").Value.ToString().Contains(qsUpperCase) || result.GetProperty("leftColumn").Value.ToString().Contains(qsFirstLatterCapitalCase) || result.GetProperty("leftColumn").Value.ToString().Contains(qsLowaerCase))
+                    {
+                        var leftColumn = Convert.ToString(result.GetProperty("leftColumn").Value);
+                        leftColumn = Regex.Replace(leftColumn, @"<.*?>", String.Empty, RegexOptions.IgnoreCase);
+                        if (leftColumn.Length > 300)
+                        {
+
+                            string text = leftColumn.ToString();
+                            int startIndex = 0;
+                            if (text.IndexOf(qsLowaerCase) > 0)
+                            {
+
+                                startIndex = text.IndexOf(qsLowaerCase);
+                            }
+                            else if (text.IndexOf(qsUpperCase) > 0)
+                            {
+                                startIndex = text.IndexOf(qsUpperCase);
+                            }
+                            else
+                            {
+                                startIndex = text.IndexOf(qsFirstLatterCapitalCase);
+                            }
+                            int lotalLength = text.Length;
+                            int lastIndex = lotalLength;
+                            if (startIndex > 150)
+                            {
+                                startIndex = startIndex - 150;
+                            }
+                            else
+                            {
+                                startIndex = 0;
+                            }
+                            if (lotalLength > 300)
+                            {
+                                if (startIndex == 0)
+                                {
+                                    lastIndex = 300;
+                                }
+                                else
+                                {
+                                    int difference = lotalLength - startIndex;
+                                    if (difference > 300)
+                                    {
+                                        lastIndex = 300;
+                                        //  lastIndex = difference;
+                                    }
+                                    else
+                                    {
+                                        lastIndex = difference;
+                                    }
+                                }
+                            }
+                            leftColumn = leftColumn.ToString().Substring(startIndex, lastIndex);
+                            leftColumn = leftColumn.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            leftColumn = leftColumn.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            leftColumn = leftColumn.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            leftColumn = leftColumn.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <p>@Html.Raw(leftColumn + "...<a class='more-link' href=" + @result.Url + ">Read More</a>")</p>
+                        }
+                        else
+                        {
+                            leftColumn = leftColumn.Replace(qs, "<span class='match'>" + qs + "</span>");
+                            leftColumn = leftColumn.Replace(qsUpperCase, "<span class='match'>" + qsUpperCase + "</span>");
+                            leftColumn = leftColumn.Replace(qsLowaerCase, "<span class='match'>" + qsLowaerCase + "</span>");
+                            leftColumn = leftColumn.Replace(qsFirstLatterCapitalCase, "<span class='match'>" + qsFirstLatterCapitalCase + "</span>");
+                            <p>@Html.Raw(leftColumn)</p>
+                        }
+                    }
+                }
+
+            </div>
+
+        </article>
+    }
+}
+else
+{
+    <article id="post-0" class="post-0 post type-post status-publish hentry">
+        <div class="entry-wrap">
+            <header class="entry-header">
+                <h1 class="entry-title">Nothing to Show Right Now</h1>
+            </header>
+            <div class="entry-content">
+                <p>It appears whatever you were looking for is no longer here or perhaps wasn't here to begin with. You might want to try starting over from the homepage to see if you can find what you're after from there.</p>
+            </div>
+        </div>
+    </article>
+}
+

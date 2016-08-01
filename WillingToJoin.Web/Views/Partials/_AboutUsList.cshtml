@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var AboutUsList = Umbraco.TypedContentAtRoot().First().Children.Where(x => x.DocumentTypeAlias == "aboutUs").SingleOrDefault().Children;
+}
+@foreach (var item in AboutUsList)
+{
+    if (item.GetProperty("image").HasValue)
+    {
+        var img = item.GetProperty("image").Value.ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+        var AboutImage = Umbraco.TypedMedia(img).Where(x => x != null).SingleOrDefault();
+        <div class="x-content-band vc border-bottom about-item">
+            <div class="x-container wpb_row">
+                <div class="x-column x-sm vc x-1-2" style="">
+                    <img class="x-img" src="@AboutImage.Url">
+                </div>
+                <div class="x-column x-sm vc x-1-2" style="">
+                    <div id="idTextPanel" class="jqDnR">
+                        @item.GetProperty("aboutDescription").Value
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{ 
+    var GalleryList = Umbraco.TypedContentAtRoot().First().Children.Where(x => x.DocumentTypeAlias == "galleries").FirstOrDefault().Children;
+ }
+
+   @foreach (var item in GalleryList)
+    {
+        if (item.GetProperty("images").HasValue)
+        {
+          
+            var objImg = item.GetProperty("images").Value.ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+            var FirstImage = Umbraco.TypedMedia(objImg).Where(x => x != null).FirstOrDefault();
+            var images = Umbraco.TypedMedia(objImg).Where(x => x != null);
+            var count = images.Count();
+            
+            <div class="ngg-album-compact">
+            <div class="ngg-album-compactbox">
+                <div class="ngg-album-link">
+                    <a class="Link gallery_link" href="@item.Url">
+                        <img class="Thumb" width="93" alt="Around Arusha" src="@FirstImage.Url">
+                    </a>
+                </div>
+            </div>
+            <h4>
+                <a class="ngg-album-desc" title="@item.Name" href="@item.Url" style="max-width: 111px">
+                    @item.Name
+                </a>
+            </h4>
+            <p class="ngg-album-gallery-image-counter">
+                <strong>@count</strong>&nbsp;Photos
+            </p>
+         </div>
+        }
+   }

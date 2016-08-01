@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<WillingToJoin.Web.Models.ContactUs>
+@using System.Web.Mvc.Html
+@{
+    var ContactUsPage = Umbraco.AssignedContentItem;
+}
+@using (Html.BeginUmbracoForm("SendMail", "ContactUs", null, new { @class = "abc" }))
+{
+
+                    <p>
+                        @ContactUsPage.GetProperty("lblName").Value<br />
+                        <span class="wpcf7-form-control-wrap your-name">
+                        @*<input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" />*@
+                            @Html.EditorFor(model => model.Name, new { @name = "your-name", @size = "40", @class = "wpcf7-form-control wpcf7-text", @required=""  })
+                        </span>
+                    </p>
+                    <p>
+                        @ContactUsPage.GetProperty("lblContactType").Value <br />
+                        <span class="wpcf7-form-control-wrap menu-436"><select name="menu-436" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false"><option value="General">General</option><option value="Prayer Support Team">Prayer Support Team</option></select></span>
+                    </p>
+                    <p>
+                        @ContactUsPage.GetProperty("lblEmail").Value<br />
+                        <span class="wpcf7-form-control-wrap your-email">
+                        @*<input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" />*@
+                        @Html.EditorFor(model => model.Email, new { @name = "your-email", @size = "40", @class = "wpcf7-form-control wpcf7-text wpcf7-email" })
+                        </span>
+                    </p>
+                    <p>
+                        @ContactUsPage.GetProperty("lblSubject").Value<br />
+                        <span class="wpcf7-form-control-wrap your-subject">
+                        @*<input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" />*@
+                        @Html.EditorFor(model => model.Subject, new { @name = "your-subject", @size = "40", @class = "wpcf7-form-control wpcf7-text" })
+                        </span>
+                    </p>
+                    <p>
+                        @ContactUsPage.GetProperty("lblMessage").Value<br />
+                        <span class="wpcf7-form-control-wrap your-message">
+                        @*<textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea>*@
+                        @Html.TextAreaFor(model => model.Message, new { @name = "your-message", @cols = "40", @rows = "10", @class = "wpcf7-form-control wpcf7-textarea" })
+                        </span>
+                    </p>
+                    <p><input type="submit" name="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
+                    <div class="wpcf7-response-output wpcf7-display-none">Validation errors occurred. Please confirm the fields and submit it again.</div>
+               
+}
+
+
+@*@{
+    if (CurrentPage.myprop.Length > 0)
+    {
+        <ul>
+            @foreach (var item in CurrentPage.myprop)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+}*@

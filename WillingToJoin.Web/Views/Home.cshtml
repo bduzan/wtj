@@ -1,0 +1,144 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Layout.cshtml";
+}
+<div id="x-content-band-1" class="x-content-band vc border-bottom" style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+    <div class="x-container wpb_row">
+        <div class="x-column x-sm vc x-1-1" style="">
+            <div class="wpb_revslider_element wpb_content_element">
+                <!-- START REVOLUTION SLIDER 5.1.4 auto mode -->
+                <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">                    
+                    @Html.Partial("_Slider")
+                    <!-- End REVOLUTION SLIDER 5.1.4 auto mode -->
+                    <script type='text/javascript' src='/scripts/REVOLUTION_SLIDER1.js'></script>
+                    <script type='text/javascript' src='/scripts/REVOLUTION_SLIDER2.js'></script>
+                    <script type='text/javascript' src='/scripts/REVOLUTION_SLIDER3.js'></script>
+                </div>
+                <!-- END REVOLUTION SLIDER -->
+            </div>
+        </div>
+        <div class="x-column x-sm vc" style="">
+            <div id="idTextPanel" class="jqDnR">
+                <h5 style="text-align: center;">@CurrentPage.pageSubHeading</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="x-content-band-2" class="x-content-band vc" style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+    <div class="x-container wpb_row">
+        <div class="x-column x-sm vc x-1-2" style="">
+            @CurrentPage.leftColumn
+        </div>
+        <div class="x-column x-sm vc x-1-2" style="">
+            <div class="wpb_raw_code wpb_content_element wpb_raw_html">
+                <div class="wpb_wrapper">
+                    @CurrentPage.rightColumn                  
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<div id="x-content-band-3" class="x-content-band vc" style="background-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+    <div class="x-container wpb_row">
+        <div class="x-column x-sm vc x-1-3" style="">
+            <div id="x-google-map-1" class="x-map x-google-map with-container" data-x-element="google_map" data-x-params='{"lat":"@CurrentPage.lattitude","lng":"@CurrentPage.longitude","drag":@CurrentPage.drag,"zoom":"@CurrentPage.zoom","zoomControl":@CurrentPage.zoomControl,"hue":""}'>
+                <div class="x-map-inner x-google-map-inner" style="padding-bottom: 90%;"></div>
+                <div class="x-google-map-marker" style="position: absolute; visibility: hidden;" data-x-element="google_map_marker" data-x-params='{"lat":"@CurrentPage.lattitude","lng":"@CurrentPage.longitude","markerInfo":""}'></div>
+            </div>
+        </div>
+        <div class="x-column x-sm vc x-1-3" style="">
+            <div class="wpb_widgetised_column wpb_content_element">
+                <div class="wpb_wrapper">
+                    <div id="wp-forecast-2" class="widget wp_forecast_widget">
+                        <div id="wp-forecastA" class="wp-forecast">
+                            <div class="spin-wrapper">
+                             <div class="spinner"></div>
+                            </div>
+                            <div class="wp-forecast-curr">
+                                <div class="wp-forecast-curr-head">
+                                    <div><a href="http://www.accuweather.com/quick-look.aspx?partner=accuweather&amp;loc=AFR|TZ|TZ000|ARUSHA|&amp;metric=0" target="_blank">Arusha, Tanzania</a></div>                                    
+                                    @{
+                                        DateTime serverTime = DateTime.Now; 
+                                        DateTime utcTime = serverTime.ToUniversalTime(); 
+                                        TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("E. Africa Standard Time");
+                                        DateTime TZ_LocalTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, tz);              
+                                      }                                
+                                    <div>
+                                        @TZ_LocalTime.ToString("MMMM dd, yyyy hh:mm tt")                                     
+                                    </div>
+                                </div>
+                                <div class="wp-forecast-curr-block">
+                                    <div class='wp-forecast-curr-left'>
+                                        <img class='wp-forecast-curr-left' src=' /media/1334/04.gif' alt='Intermittent clouds' width='64' height='40' />
+                                        <br />
+                                    </div><div class='wp-forecast-curr-right'>                               
+                                <span class="current-temperature-deg">C</span>
+                                    </div>
+                                </div>
+                                <ul class="wp-forecast-curr-details">                           
+                                
+                                </ul>
+                            </div>
+                            <div class="wp-forecast-fc">
+                            </div>
+                        </div>
+                        <div style="clear:inherit;">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x-column x-sm vc x-1-3" style="">
+            @CurrentPage.bottomPart
+        </div>
+    </div>
+</div>
+@section css{
+
+<style>
+    ul.wp-forecast-curr-details {
+        text-align: left;
+        clear: both;
+    }
+
+        ul.wp-forecast-curr-details li {
+            border: 0;
+            padding: 3px 0;
+        }
+
+    li.wind:before {
+        content: "Wind Speed:";
+    }
+    .x-header-landmark {
+        display: none;
+    }
+
+</style>
+ }
+
+@section js {
+<script type="text/javascript">
+    $(document).ready(function () {      
+        $.ajax({
+            url: "/umbraco/Surface/Weather/getWeatherDetails/",
+            type: 'GET',            
+            contentType: 'application/json',
+            success: function (data) {               
+                $('.wp-forecast-curr-details').append(data.OtherDetails);
+                $('.wp-forecast-curr-details').append(data.FeatureSun);
+                $('.wp-forecast-curr-right').prepend(data.Temprature);
+                $('.spin-wrapper').show();
+                
+            },
+            complete: function(){
+                $('.spin-wrapper').hide();
+                
+            }
+        })
+
+    })
+</script>
+
+
+}

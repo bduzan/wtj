@@ -1,0 +1,39 @@
+﻿@model WillingToJoin.Models.ContactViewModel
+
+@{
+	ViewBag.Title = "Contact";
+}
+
+@using (Html.BeginForm())
+{
+	<div>
+		<label>Name</label>
+		@Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name:" })
+		@Html.ValidationMessageFor(m => m.Name)
+	</div>
+	<div>
+		<label>Email</label>
+		@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email:" })
+		@Html.ValidationMessageFor(m => m.Email)
+	</div>
+	<div>
+		<label>Type of Contact</label>
+		@Html.DropDownListFor(model => model.Type, new SelectList(
+			new List<Object>
+			{
+				new {value = 1, text = "General"},
+				new {value = 2, text = "Prayer Team"}
+			},
+			"value",
+			"text",
+			null), string.Empty)
+		@Html.ValidationMessageFor(m => m.Type)
+	</div>
+	<div>
+		<label>Message</label>
+		@Html.TextAreaFor(m => m.Message, new { @class = "form-control", @rows = "6", placeholder = "Message:" })
+		@Html.ValidationMessageFor(m => m.Message)
+	</div>
+	<input type="submit" class="" value="Send Message" text="Send Message">
+}
+

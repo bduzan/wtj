@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Willing To Joint | 404</title>
+    <link href="/css/404.css" rel="stylesheet" media="screen">
+
+</head>
+<body id="body404">
+    @if (CurrentPage.DocumentTypeAlias == "pageNotFound")
+    {
+        <div id="content404">
+            @CurrentPage.description
+        </div>
+    }
+    @if (CurrentPage.DocumentTypeAlias == "error")
+    {
+        <div id="contentError">
+            @CurrentPage.description
+        </div>
+    }
+</body>
+</html>

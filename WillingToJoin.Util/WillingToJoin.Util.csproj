@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BEF7A8A-8D25-4BDE-96B5-E6BB03ACA78E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WillingToJoin.Util</RootNamespace>
+    <AssemblyName>WillingToJoin.Util</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.BulkInsert, Version=6.0.2.8, Culture=neutral, PublicKeyToken=630a17433349cb76, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.BulkInsert-ef6.6.0.2.8\lib\Net45\EntityFramework.BulkInsert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.0.0.7, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.0.0.7\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BushMedicalTransport\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BushMedicalTransport\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Account.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AccountNote.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AccountStatu.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetRole.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUserClaim.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AspNetUserLogin.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsContent.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsContentType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsContentTypeAllowedContentType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsContentVersion.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsContentXml.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsDataType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsDataTypePreValue.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsDictionary.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsDocument.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsDocumentType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsLanguageText.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsMacro.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsMacroProperty.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsMember.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsMemberType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsPreviewXml.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsPropertyData.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsPropertyType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsPropertyTypeGroup.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsStylesheet.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsStylesheetProperty.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsTag.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsTagRelationship.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsTask.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsTaskType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\cmsTemplate.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Contact.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ContactNote.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\C__MigrationHistory.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Household.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HouseholdFamilyRole.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HouseholdNote.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HouseholdStatu.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MailingList.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MailingListMember.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MailingListType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NoteType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoAccess.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoAccessRule.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoCacheInstruction.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoDeployChecksum.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoDeployDependency.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoDomain.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoExternalLogin.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoLanguage.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoLog.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoMigration.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoNode.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoRelation.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoRelationType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoServer.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoUser.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoUser2app.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoUser2NodeNotify.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoUser2NodePermission.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\umbracoUserType.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WTJModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WTJModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WTJModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WTJModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WTJModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WTJModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataExtract\Account.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataExtract\Contact.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DataExtract\Household.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EntityDeploy Include="Data\WTJModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WTJModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\WTJModel.edmx.diagram">
+      <DependentUpon>WTJModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WillingToJoin.Shared\WillingToJoin.Shared.csproj">
+      <Project>{7a9e3ad1-1a39-4cc7-92f5-d8a8a0eb8745}</Project>
+      <Name>WillingToJoin.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\WTJModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WTJModel.edmx</DependentUpon>
+      <LastGenOutput>WTJModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\WTJModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WTJModel.edmx</DependentUpon>
+      <LastGenOutput>WTJModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

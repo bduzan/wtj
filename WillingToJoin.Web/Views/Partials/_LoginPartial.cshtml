@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    var member = umbraco.cms.businesslogic.member.Member.GetCurrentMember();
+    using (Html.BeginForm("LogOff", "ManageAccount", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <a id="logout" href="/crm/reset-password" title='Reset Password'>Hello @member.getProperty("firstName").Value !</a>
+            </li>
+            <li>
+                <a class="text-green" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-top-links navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "ManageAccount", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "ManageAccount", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "text-green" })</li>
+    </ul>
+}
+

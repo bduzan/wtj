@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Willing to Join | @ViewBag.Title</title>
+	    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    
+</head>
+<body class="page">
+   
+
+    <div class="container">
+
+        <!-- Navigation -->
+        @Html.Partial("_Navigation")
+
+        <!-- Main view  -->
+        @RenderBody()
+
+        <!-- Footer -->
+        @Html.Partial("_Footer")
+
+    </div>
+    <a class="scroll-top right fade" href="#top" title="Back to Top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+    <script src="~/Scripts/kendo/2015.3.1111/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            var h = $(window).height();
+            if ($(this).scrollTop() > h) {
+                $('.scroll-top').addClass('in');
+            } else {
+                $('.scroll-top').removeClass('in');
+            }
+        });
+    </script>
+</body>
+</html>

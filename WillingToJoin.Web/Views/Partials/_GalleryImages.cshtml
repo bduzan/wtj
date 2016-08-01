@@ -1,0 +1,88 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var CurrentPage = Umbraco.AssignedContentItem;
+    if (CurrentPage.GetProperty("images").HasValue)
+    {
+
+        
+        var objImg = CurrentPage.GetProperty("images").Value.ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+        var images = Umbraco.TypedMedia(objImg).Where(x => x != null);
+        int i = 0; 
+        
+        
+       //paging started 
+    var pageSize = 5;
+    if (CurrentPage.Parent.GetProperty("imagesPerPage").HasValue)
+    {
+        pageSize = Convert.ToInt32(CurrentPage.Parent.GetProperty("imagesPerPage").Value);
+    }
+    
+    var page = 1; int.TryParse(Request.QueryString["page"], out page);
+    
+    var totalPages = (int)Math.Ceiling((double)images.Count() / (double)pageSize);
+
+    if (page > totalPages)
+    {
+        page = totalPages;
+    }
+    else if (page < 1)
+    {
+        page = 1;
+    }
+
+
+    foreach (var image in images.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(x => x.Name))
+    {
+        var ngg_image = "ngg-image-" + i;
+                <div id="@ngg_image" class="ngg-gallery-thumbnail-box">
+                    <div class="ngg-gallery-thumbnail">
+                        <a href="@image.Url" title="" data-src="@image.Url" data-thumbnail="@image.Url" data-image-id="1" data-title="Arusha intersection" data-description="" class="ngg-fancybox" rel="55b981921f65370d023409d0c5e7622a">
+                            <img title="@image.Name.ToString().Substring(0, image.Name.Length - 4).Replace("-"," ")" alt="@image.Name.ToString().Substring(0, image.Name.Length - 4).Replace("-"," "))" src="@image.Url" width="240" height="160" style="max-width:none;">
+                        </a>
+                    </div>
+                </div>
+        i++;
+    }
+
+
+    if (totalPages > 1)
+    {
+        <div class="ngg-navigation">
+          
+                @if (page > 1)
+                {
+                    @*<li><a class="page-numbers" href="?page=@(page-1)">Prev</a></li>*@
+                    <a class="prev" href="?page=@(page-1)">◄</a>
+                }
+                @for (int p = 1; p < totalPages + 1; p++)
+                {
+                    if (page == p)
+                    {           
+                        <span class="@(p == page ? "active" : string.Empty)">@p</span> 
+                    }
+                    else
+                    {
+                        <a class="page-numbers" href="?page=@p">@p</a>
+                    }
+                                                     
+                }
+                @if (page < totalPages)
+                {
+                    <a class="next" href="?page=@(page+1)">►</a>
+                                    
+                }
+            
+        </div>
+    }
+
+        //paging end
+     @*<div class="ngg-navigation">
+        <span class="current">1</span>
+        <a class="page-numbers" data-pageid="2" href="http://www.willingtojoin.org/photo-galleries/nggallery/landscape/landscape/page/2">2</a>
+        <a class="next" data-pageid="2" id="ngg-next-2" href="http://www.willingtojoin.org/photo-galleries/nggallery/landscape/landscape/page/2">►</a>
+     </div>*@ 
+        
+       
+    }
+}

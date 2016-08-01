@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b5839ebc45a94a7c938d08614606d8dd" Name="Diagram1">
+        <EntityTypeShape EntityType="WTJModel.AccountNote" Width="1.5" PointX="13.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.Account" Width="1.5" PointX="11" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.AccountStatu" Width="1.5" PointX="8.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.AspNetRole" Width="1.5" PointX="18.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.AspNetUserClaim" Width="1.5" PointX="23.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.AspNetUserLogin" Width="1.5" PointX="23.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsContent" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsContentType" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsContentTypeAllowedContentType" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsContentVersion" Width="1.5" PointX="2.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsContentXml" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsDataType" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsDataTypePreValue" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsDictionary" Width="1.5" PointX="2.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsDocument" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsDocumentType" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsLanguageText" Width="1.5" PointX="21" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsMacro" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsMacroProperty" Width="1.5" PointX="21" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsMember" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsMemberType" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsPreviewXml" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsPropertyData" Width="1.5" PointX="8.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsPropertyType" Width="1.5" PointX="6" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsPropertyTypeGroup" Width="1.5" PointX="3.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsStylesheet" Width="1.5" PointX="5.25" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsStylesheetProperty" Width="1.5" PointX="8.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsTagRelationship" Width="1.5" PointX="10" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsTag" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsTask" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsTaskType" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.cmsTemplate" Width="1.5" PointX="5.25" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.ContactNote" Width="1.5" PointX="18.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.Contact" Width="1.5" PointX="16.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.HouseholdFamilyRole" Width="1.5" PointX="14" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.HouseholdNote" Width="1.5" PointX="16.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.Household" Width="1.5" PointX="14" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.HouseholdStatu" Width="1.5" PointX="11.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.MailingListMember" Width="1.5" PointX="18.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.MailingList" Width="1.5" PointX="16.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.MailingListType" Width="1.5" PointX="14" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.NoteType" Width="1.5" PointX="11" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoAccess" Width="1.5" PointX="5.25" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoAccessRule" Width="1.5" PointX="7.5" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoCacheInstruction" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoDeployChecksum" Width="1.5" PointX="10.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoDeployDependency" Width="1.5" PointX="13" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoDomain" Width="1.5" PointX="5.25" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoExternalLogin" Width="1.5" PointX="9.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoLanguage" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoLog" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoMigration" Width="1.5" PointX="7.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoNode" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoRelation" Width="1.5" PointX="8.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoRelationType" Width="1.5" PointX="6" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoServer" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoUser" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoUser2app" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoUser2NodeNotify" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoUser2NodePermission" Width="1.5" PointX="11.25" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.umbracoUserType" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.User" Width="1.5" PointX="21" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WTJModel.C__MigrationHistory" Width="1.5" PointX="15.75" PointY="20.5" IsExpanded="true" />
+        <AssociationConnector Association="WTJModel.FK_dbo_AccountNotes_dbo_Accounts_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_AccountNotes_dbo_NoteTypes_NoteTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_Accounts_AccountStatus_AccountStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_Contacts_dbo_Accounts_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_AspNetUserClaims_dbo_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_AspNetUserLogins_dbo_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsContent_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsContentType_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsDataType_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsDocument_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsDocumentType_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsLanguageText_umbracoLanguage_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsMacroProperty_cmsMacro_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsMember_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsMemberType_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsPropertyData_cmsPropertyType_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsPropertyData_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsPropertyType_cmsPropertyTypeGroup_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTagRelationship_cmsPropertyType" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsStylesheet_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTagRelationship_cmsTags_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTags_cmsTags" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTask_cmsTaskType_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTask_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTask_umbracoUser" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTask_umbracoUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_cmsTemplate_umbracoNode" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_ContactNotes_dbo_Contacts_ContactID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_ContactNotes_dbo_NoteTypes_NoteTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_Contacts_dbo_HouseholdFamilyRoles_HouseholdFamilyRoleID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_Contacts_dbo_Households_HouseholdID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_MailingListMembers_dbo_Contacts_ContactID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_HouseholdNotes_dbo_Households_HouseholdID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_HouseholdNotes_dbo_NoteTypes_NoteTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_Households_dbo_HouseholdStatus_HouseholdStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_MailingListMembers_dbo_MailingLists_MailingListID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_dbo_MailingLists_dbo_MailingListTypes_MailingListTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoAccess_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoAccess_umbracoNode_id1" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoAccess_umbracoNode_id2" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoAccessRule_umbracoAccess_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoDeployDependency_umbracoDeployChecksum_id1" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoDeployDependency_umbracoDeployChecksum_id2" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoDomains_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoNode_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoRelation_umbracoNode" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoRelation_umbracoNode1" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser2NodeNotify_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser2NodePermission_umbracoNode_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoRelation_umbracoRelationType_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser_umbracoUserType_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser2app_umbracoUser_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser2NodeNotify_umbracoUser_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.FK_umbracoUser2NodePermission_umbracoUser_id" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.cmsContentType2ContentType" ManuallyRouted="false" />
+        <AssociationConnector Association="WTJModel.cmsMember2MemberGroup" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,240 @@
+﻿
+
+6/27/2016 5:33:54 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:33:58 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:09 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:13 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:21 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:24 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:30 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:30 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:56 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:34:57 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:45:19 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:45:53 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:46:15 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:46:52 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 5:47:16 PM
+(1) Error Message : No physical template file was found for template Index
+(2) Inner Exception :
+
+
+6/27/2016 6:46:27 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 6:46:34 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 6:46:42 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 6:50:08 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 6:50:08 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 6:50:08 PM
+(1) Error Message : The template with Id 1676 does not exist, the page cannot render
+(2) Inner Exception :
+
+
+6/27/2016 10:28:15 AM
+(1) Error Message : An error occurred when trying to create a controller of type 'WillingToJoin.Web.Areas.CRM.Controllers.AccountController'. Make sure that the controller has a parameterless public constructor.
+(2) Inner Exception :System.InvalidOperationException: No connection string named 'DefaultConnection' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.Initialize()
+   at System.Data.Entity.Internal.LazyInternalConnection.get_Connection()
+   at System.Data.Entity.Internal.LazyInternalContext.get_Connection()
+   at Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1.IsIdentityV1Schema(DbContext db)
+   at Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1..ctor(String nameOrConnectionString, Boolean throwIfV1Schema)
+   at Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1..ctor(String nameOrConnectionString)
+   at WillingToJoin.Shared.Context.DatabaseContext..ctor() in C:\Users\pwens\Documents\GitHubVisualStudio\WillingToJoin\WillingToJoin.Shared\Context\DatabaseContext.cs:line 11
+   at DynamicInjector4123d2a0f8664aa6be9a191b3a0dc2d5(Object[] )
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   at Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   at Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   at Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   at Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   at Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   at Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   at Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   at Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   at Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Ninject.Web.Mvc.NinjectDependencyResolver.GetService(Type serviceType)
+   at System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)
+
+
+6/27/2016 2:20:12 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/27/2016 2:20:37 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/27/2016 2:23:27 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/27/2016 2:25:52 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/27/2016 2:27:53 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/29/2016 6:09:32 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/29/2016 6:25:44 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/29/2016 7:31:33 PM
+(1) Error Message : "class" is a reserved word and cannot be used in implicit expressions.  An explicit expression ("@()") must be used.
+
+(2) Inner Exception :
+
+
+6/29/2016 7:31:47 PM
+(1) Error Message : "class" is a reserved word and cannot be used in implicit expressions.  An explicit expression ("@()") must be used.
+
+(2) Inner Exception :
+
+
+6/30/2016 11:36:20 AM
+(1) Error Message : There is no ViewData item of type 'IEnumerable<SelectListItem>' that has the key 'HouseholdID'.
+(2) Inner Exception :
+
+
+6/30/2016 11:37:10 AM
+(1) Error Message : There is no ViewData item of type 'IEnumerable<SelectListItem>' that has the key 'HouseholdID'.
+(2) Inner Exception :
+
+
+6/30/2016 1:33:11 PM
+(1) Error Message : Value cannot be null.
+Parameter name: source
+(2) Inner Exception :
+
+
+6/30/2016 1:47:30 PM
+(1) Error Message : The model item passed into the dictionary is of type 'WillingToJoin.Web.Models.HouseholdNoteViewModel', but this dictionary requires a model item of type 'WillingToJoin.Web.Models.HouseholdViewModel'.
+(2) Inner Exception :

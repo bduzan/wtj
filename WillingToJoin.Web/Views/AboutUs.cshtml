@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html
+@{
+	Layout = "Layout.cshtml";
+}
+
+<div id="x-content-band-1" class="x-content-band vc border-bottom" style="background-color: transparent; padding-top: 0px; padding-bottom: 5px;">
+    <div class="x-container wpb_row">
+        <div class="x-column x-sm vc x-1-1" style="">
+            <h5 style="text-align: center;">
+            @CurrentPage.pageSubHeading
+            </h5>
+        </div>
+    </div>
+</div>
+@CurrentPage.bodyText
+

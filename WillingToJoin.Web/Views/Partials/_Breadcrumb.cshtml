@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{ var selection = CurrentPage.Ancestors(); }
+
+@if (selection.Any())
+{
+    <div class="x-breadcrumbs">
+        @foreach (var item in selection.OrderBy("Level"))
+        {
+            if (item.DocumentTypeAlias == "home") {
+            <a href="/"><span class="home"><i class="x-icon-home" data-x-icon=""></i></span></a>
+             <span class="delimiter">
+                    <i class="x-icon-angle-right" data-x-icon=""></i>
+             </span> 
+            }
+            else
+            {
+               <a href="@item.Url">@item.Name</a> 
+                <span class="delimiter">
+                    <i class="x-icon-angle-right" data-x-icon=""></i>
+               </span> 
+            }
+             
+        }
+        <span class="current">@CurrentPage.Name</span>        
+    </div>
+}
